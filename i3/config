@@ -66,7 +66,7 @@ bindsym $mod+Shift+q kill
 bindsym $mod+q exec nemo
 
 # open screen snip
-bindsym $mod+p exec gnome-screenshot --interactive
+bindsym $mod+p exec flameshot gui
 
 # lock screen
 bindsym $mod+Control+l exec dm-tool switch-to-greeter

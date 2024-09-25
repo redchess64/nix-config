@@ -30,6 +30,9 @@
 
   programs.alacritty.enable = true;
 
+  programs.bash.shellAliases = {
+    nrs = "sudo nixos-rebuild switch";
+  };
   
   services.polybar = {
     enable = true;
@@ -48,6 +51,8 @@
       corner-radius = 10;
     };
   };
+
+  services.flameshot.enable = true;
 
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage
