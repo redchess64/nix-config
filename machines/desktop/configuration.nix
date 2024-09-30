@@ -47,6 +47,7 @@
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
+  services.xserver.displayManager.sddm.wayland.enable = true;
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
@@ -55,6 +56,7 @@
   # services.xserver.desktopManager.gnome.enable = true;
 
   services.xserver.windowManager.i3.enable = true;
+  programs.hyprland.enable = true;
   # Configure keymap in X11
   services.xserver = {
     layout = "us";
@@ -64,7 +66,11 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
-
+  services.avahi = {
+    enable = true;
+    # nssmdns4 = true;
+    openFirewall = true;
+  };
 
   nix.settings.trusted-users = ["*"];
 
@@ -138,7 +144,7 @@
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+  networking.firewall.enable = false;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

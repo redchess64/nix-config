@@ -7,17 +7,22 @@
   home.homeDirectory = "/home/calebh";
 
   home.file.".config/i3/config" = {
-    source = ./i3/config;
+    source = ./configs/i3/config;
     recursive = true;   # link recursively
     executable = true;  # make all files executable
   };
 
   home.file.".config/polybar/" = {
-    source = ./polybar;
+    source = ./configs/polybar;
     recursive = true;
     executable = true;
   };
-  
+ 
+  home.file.".config/nvim/" = {
+    source = ./configs/nvim;
+    recursive = true;
+  };
+
   home.packages = with pkgs; [
     neofetch
   ];
@@ -30,8 +35,16 @@
 
   programs.alacritty.enable = true;
 
+  programs.neovim = {
+    enable = true;
+    viAlias = true;
+    vimAlias = true;
+  };
+
+  programs.fish.enable = true;
+  programs.bash.enable = true;
   programs.bash.shellAliases = {
-    nrs = "sudo nixos-rebuild switch";
+    "nrs" = "sudo nixos-rebuild switch";
   };
   
   services.polybar = {
