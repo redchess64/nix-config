@@ -135,7 +135,9 @@ programs.hyprland = {
   pkgs.git
   pkgs.cinnamon.nemo
   pkgs.kitty
-  pkgs.wofi
+  pkgs.bemenu
+  pkgs.waybar
+  pkgs.nerdfonts
   ];
 
  # Some programs need SUID wrappers, can be configured further or are

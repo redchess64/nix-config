@@ -17,9 +17,19 @@
     recursive = true;
     executable = true;
   };
- 
+
   home.file.".config/nvim/" = {
     source = ./configs/nvim;
+    recursive = true;
+  };
+
+  home.file.".config/hypr/" = {
+    source = ./configs/hypr;
+    recursive = true;
+  };
+
+  home.file.".config/waybar/" = {
+    source = ./configs/waybar;
     recursive = true;
   };
 
