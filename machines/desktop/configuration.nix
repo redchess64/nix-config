@@ -50,7 +50,7 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
   services.xserver.displayManager.sddm.wayland.enable = true;
-
+  services.xserver.displayManager.sddm.enable = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Enable the GNOME Desktop Environment.
@@ -134,7 +134,8 @@ programs.hyprland = {
   pkgs.home-manager
   pkgs.git
   pkgs.cinnamon.nemo
-  pgs.kitty
+  pkgs.kitty
+  pkgs.wofi
   ];
 
  # Some programs need SUID wrappers, can be configured further or are
