@@ -49,8 +49,8 @@
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
-  services.xserver.displayManager.sddm.wayland.enable = true;
-  services.xserver.displayManager.sddm.enable = true;
+  services.displayManager.sddm.wayland.enable = true;
+  services.displayManager.sddm.enable = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Enable the GNOME Desktop Environment.
@@ -67,8 +67,8 @@ programs.hyprland = {
   };
  # Configure keymap in X11
   services.xserver = {
-    layout = "us";
-    xkbVariant = "";
+    xkb.layout = "us";
+    xkb.variant = "";
   };
 
   # Enable CUPS to print documents.
