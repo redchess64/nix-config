@@ -138,6 +138,7 @@ programs.hyprland = {
   pkgs.bemenu
   pkgs.waybar
   pkgs.nerdfonts
+  pkgs.hyprshot
   ];
 
  # Some programs need SUID wrappers, can be configured further or are
