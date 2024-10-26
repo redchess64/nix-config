@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, pkgs-unstable, ... }:
 
 {
   # Home Manager needs a bit of information about you and the
@@ -33,6 +33,11 @@
     recursive = true;
   };
 
+  home.file.".config/lock_background.png" = {
+    source = ./configs/lock_background;
+    # recursive = true;
+  };
+
   home.packages = with pkgs; [
     neofetch
   ];
@@ -49,6 +54,7 @@
     enable = true;
     viAlias = true;
     vimAlias = true;
+    # packages = pkgs-unstable.neovim-unwrapped;
   };
 
   programs.fish.enable = true;
@@ -57,7 +63,6 @@
     "nrs" = "sudo nixos-rebuild switch";
   };
 
-#  programs.bash.bashrcExtra = "export NIX_LD=$(nix eval --impure --raw --expr 'let pkgs = import <nixpkgs> {}; NIX_LD = pkgs.lib.fileContents \"${pkgs.stdenv.cc}/nix-support/dynamic-linker\"; in NIX_LD '\")";
 
   services.polybar = {
     enable = true;
@@ -79,6 +84,15 @@
 
   services.flameshot.enable = true;
 
+  catppuccin.enable = true;
+
+  programs.hyprlock.enable = true;
+  programs.hyprlock.catppuccin.enable = false;
+
+  wayland.windowManager.hyprland = {
+    enable = true;
+    xwayland.enable = true;
+  };
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage
   # when a new Home Manager release introduces backwards

@@ -127,18 +127,22 @@ programs.hyprland = {
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  security.pam.services.hyprlock = {};
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = [
+  environment.systemPackages = with pkgs; [
   #  wget
-  pkgs.home-manager
-  pkgs.git
-  pkgs.cinnamon.nemo
-  pkgs.kitty
-  pkgs.bemenu
-  pkgs.waybar
-  pkgs.nerdfonts
-  pkgs.hyprshot
+  home-manager
+  git
+  cinnamon.nemo
+  kitty
+  bemenu
+  waybar
+  nerdfonts
+  hyprshot
+  unzip
+  gcc
   ];
 
  # Some programs need SUID wrappers, can be configured further or are

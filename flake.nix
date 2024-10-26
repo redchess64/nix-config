@@ -3,6 +3,8 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    catppuccin.url = "github:catppuccin/nix";
     # home-manager, used for managing user configuration
     home-manager = {
       url = "github:nix-community/home-manager/release-24.05";
@@ -14,10 +16,11 @@
     };
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, ... }: {
+  outputs = inputs@{ nixpkgs, nixpkgs-unstable, catppuccin, home-manager, ... }: {
     nixosConfigurations = {
       dell_studio = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
+
         modules = [
           ./machines/dell_studio/configuration.nix
 
@@ -37,9 +40,19 @@
       };
       desktop = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
+
+        specialArgs = { 
+          pkgs-unstable = import nixpkgs-unstable {
+            inherit nixpkgs-unstable;
+            config.allowUnfree = true;
+          };
+        };
+
+
+
         modules = [
           ./machines/desktop/configuration.nix
-
+          catppuccin.nixosModules.catppuccin
           # make home-manager as a module of nixos
           # so that home-manager configuration will be deployed automatically when executing `nixos-rebuild switch`
           home-manager.nixosModules.home-manager
@@ -48,8 +61,12 @@
             home-manager.useUserPackages = true;
 
             # TODO replace ryan with your own username
-            home-manager.users.calebh = import ./home.nix;
-
+            home-manager.users.calebh = {
+              imports = [
+                ./home.nix
+                catppuccin.homeManagerModules.catppuccin
+              ];
+            };
             # Optionally, use home-manager.extraSpecialArgs to pass arguments to home.nix
           }
         ];
