@@ -59,16 +59,15 @@
 
   services.xserver.windowManager.i3.enable = true;
   
-programs.hyprland = {
-    # Install the packages from nixpkgs
-    enable = true;
-    # Whether to enable XWayland
-    xwayland.enable = true;
-  };
  # Configure keymap in X11
   services.xserver = {
     xkb.layout = "us";
     xkb.variant = "";
+  };
+
+  programs.hyprland = {
+    enable = true;
+    xwayland.enable = true;
   };
 
   # Enable CUPS to print documents.
@@ -83,7 +82,6 @@ programs.hyprland = {
   nix.settings.trusted-users = ["*"];
 
   # Enable sound with pipewire.
-  sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -135,7 +133,7 @@ programs.hyprland = {
   #  wget
   home-manager
   git
-  cinnamon.nemo
+  nemo
   kitty
   bemenu
   waybar

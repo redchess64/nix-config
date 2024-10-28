@@ -54,7 +54,7 @@
     enable = true;
     viAlias = true;
     vimAlias = true;
-    # packages = pkgs-unstable.neovim-unwrapped;
+    package = pkgs-unstable.neovim-unwrapped;
   };
 
   programs.fish.enable = true;
@@ -87,12 +87,14 @@
   catppuccin.enable = true;
 
   programs.hyprlock.enable = true;
+  programs.hyprlock.package = pkgs-unstable.hyprlock;
   programs.hyprlock.catppuccin.enable = false;
 
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
   };
+
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage
   # when a new Home Manager release introduces backwards
