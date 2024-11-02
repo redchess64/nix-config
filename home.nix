@@ -38,6 +38,10 @@
     # recursive = true;
   };
 
+  home.file.".config/background.png" = {
+    source = ./configs/background;
+  };
+
   home.packages = with pkgs; [
     neofetch
     hypridle
@@ -48,6 +52,7 @@
     nerdfonts
     hyprshot
     hyprpolkitagent
+    hyprpaper
   ];
 
 
@@ -58,6 +63,9 @@
     enable = true;
     userName = "Caleb Hess";
     userEmail = "redchess64@gmail.com";
+    extraConfig = {
+      core.askPass = "";
+    };
   };
 
   programs.alacritty.enable = true;
@@ -107,8 +115,6 @@
       corner-radius = 10;
     };
   };
-
-  services.flameshot.enable = true;
 
   catppuccin.enable = true;
 
