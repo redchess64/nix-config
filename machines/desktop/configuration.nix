@@ -16,6 +16,15 @@
   # boot.loader.grub.useOSProber = true;
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.systemd-boot.configurationLimit = 10;
+  
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 1w";
+  };
+
+  nix.settings.auto-optimise-store  = true;
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
@@ -133,12 +142,6 @@
   #  wget
   home-manager
   git
-  nemo
-  kitty
-  bemenu
-  waybar
-  nerdfonts
-  hyprshot
   unzip
   gcc
   ];
@@ -149,9 +152,7 @@
   # programs.gnupg.agent = {
   #   enable = true;
   #   enableSSHSupport = true;
-  # };
-
-  # List services that you want to enable:
+  # };  # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;

@@ -40,7 +40,19 @@
 
   home.packages = with pkgs; [
     neofetch
+    hypridle
+    nemo
+    kitty
+    bemenu
+    waybar
+    nerdfonts
+    hyprshot
+    hyprpolkitagent
   ];
+
+
+  home.pointerCursor.package = pkgs.catppuccin-cursors.mochaDark;
+  home.pointerCursor.name = "catppuccin-mocha-dark-cursors";
 
   programs.git = {
     enable = true;
@@ -54,15 +66,29 @@
     enable = true;
     viAlias = true;
     vimAlias = true;
-    package = pkgs-unstable.neovim-unwrapped;
   };
 
-  programs.fish.enable = true;
-  programs.bash.enable = true;
-  programs.bash.shellAliases = {
+  home.shellAliases = {
+    l = "ls -lAh";
     "nrs" = "sudo nixos-rebuild switch";
   };
 
+  programs.bash = {
+    enable = true;
+    bashrcExtra = ''
+    export VISUAL="nvim"
+    export EDITOR="nvim"
+    '';
+  };
+  programs.readline = {
+    enable = true;
+    extraConfig = ''
+      set editing-mode vi
+      set show-mode-in-prompt on
+      set vi-ins-mode-string (ins)\1\e[5 q\2
+      set vi-cmd-mode-string (cmd)\1\e[1 q\2
+    '';
+  };
 
   services.polybar = {
     enable = true;
@@ -87,7 +113,6 @@
   catppuccin.enable = true;
 
   programs.hyprlock.enable = true;
-  programs.hyprlock.package = pkgs-unstable.hyprlock;
   programs.hyprlock.catppuccin.enable = false;
 
   wayland.windowManager.hyprland = {
