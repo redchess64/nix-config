@@ -53,6 +53,9 @@
     hyprshot
     hyprpolkitagent
     hyprpaper
+    prismlauncher
+    aseprite
+    yt-dlp
   ];
 
 
@@ -95,6 +98,7 @@
       set show-mode-in-prompt on
       set vi-ins-mode-string (ins)\1\e[5 q\2
       set vi-cmd-mode-string (cmd)\1\e[1 q\2
+      set completion-ignore-case On
     '';
   };
 
