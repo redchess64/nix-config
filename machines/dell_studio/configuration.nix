@@ -5,10 +5,10 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
   # Bootloader.
   boot.loader.grub.enable = true;
@@ -46,7 +46,10 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   # Enable the GNOME Desktop Environment.
   # services.xserver.displayManager.gdm.enable = true;
@@ -62,9 +65,7 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
-
-
-  nix.settings.trusted-users = ["*"];
+  nix.settings.trusted-users = [ "*" ];
 
   # Enable sound with pipewire.
   sound.enable = true;
@@ -90,7 +91,10 @@
   users.users.calebh = {
     isNormalUser = true;
     description = "Caleb Hess";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
     packages = with pkgs; [
       betterdiscordctl
     ];
@@ -105,10 +109,10 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #  wget
-  home-manager
-  git
+    #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    #  wget
+    home-manager
+    git
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

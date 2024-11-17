@@ -2,13 +2,18 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, pkgs-unstable, ... }:
+{
+  config,
+  pkgs,
+  pkgs-unstable,
+  ...
+}:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
   # Bootloader.
   # boot.loader.grub.enable = true;
@@ -17,14 +22,14 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.systemd-boot.configurationLimit = 10;
-  
+
   nix.gc = {
     automatic = true;
     dates = "weekly";
     options = "--delete-older-than 1w";
   };
 
-  nix.settings.auto-optimise-store  = true;
+  nix.settings.auto-optimise-store = true;
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
@@ -60,15 +65,18 @@
   services.xserver.enable = true;
   services.displayManager.sddm.wayland.enable = true;
   services.displayManager.sddm.enable = true;
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   # Enable the GNOME Desktop Environment.
   # services.xserver.displayManager.gdm.enable = true;
   # services.xserver.desktopManager.gnome.enable = true;
 
   services.xserver.windowManager.i3.enable = true;
-  
- # Configure keymap in X11
+
+  # Configure keymap in X11
   services.xserver = {
     xkb.layout = "us";
     xkb.variant = "";
@@ -88,7 +96,7 @@
     openFirewall = true;
   };
 
-  nix.settings.trusted-users = ["*"];
+  nix.settings.trusted-users = [ "*" ];
 
   # Enable sound with pipewire.
   hardware.pulseaudio.enable = false;
@@ -113,7 +121,10 @@
   users.users.calebh = {
     isNormalUser = true;
     description = "Caleb Hess";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
     packages = with pkgs; [
       discord
     ];
@@ -130,23 +141,23 @@
   };
 
   programs.nix-ld.enable = true;
-  
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  security.pam.services.hyprlock = {};
+  security.pam.services.hyprlock = { };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  #  wget
-  home-manager
-  git
-  unzip
-  gcc
+    #  wget
+    home-manager
+    git
+    unzip
+    gcc
   ];
 
- # Some programs need SUID wrappers, can be configured further or are
+  # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
   # programs.gnupg.agent = {

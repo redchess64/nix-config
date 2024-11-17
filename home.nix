@@ -1,4 +1,9 @@
-{ config, pkgs, pkgs-unstable, ... }:
+{
+  config,
+  pkgs,
+  pkgs-unstable,
+  ...
+}:
 
 {
   # Home Manager needs a bit of information about you and the
@@ -8,8 +13,8 @@
 
   home.file.".config/i3/config" = {
     source = ./configs/i3/config;
-    recursive = true;   # link recursively
-    executable = true;  # make all files executable
+    recursive = true; # link recursively
+    executable = true; # make all files executable
   };
 
   home.file.".config/polybar/" = {
@@ -58,7 +63,6 @@
     yt-dlp
   ];
 
-
   home.pointerCursor.package = pkgs.catppuccin-cursors.mochaDark;
   home.pointerCursor.name = "catppuccin-mocha-dark-cursors";
 
@@ -82,13 +86,14 @@
   home.shellAliases = {
     l = "ls -lAh";
     "nrs" = "sudo nixos-rebuild switch";
+    "cat" = "bat";
   };
 
   programs.bash = {
     enable = true;
     bashrcExtra = ''
-    export VISUAL="nvim"
-    export EDITOR="nvim"
+      export VISUAL="nvim"
+      export EDITOR="nvim"
     '';
   };
   programs.readline = {
@@ -101,6 +106,8 @@
       set completion-ignore-case On
     '';
   };
+
+  programs.bat.enable = true;
 
   services.polybar = {
     enable = true;
