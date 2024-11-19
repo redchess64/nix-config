@@ -125,9 +125,10 @@
       "networkmanager"
       "wheel"
     ];
-    packages = with pkgs; [
-      discord
-    ];
+    packages =
+      with pkgs;
+      [
+      ];
   };
 
   # Install firefox.

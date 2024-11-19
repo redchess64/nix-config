@@ -4,6 +4,11 @@
   pkgs-unstable,
   ...
 }:
+let
+  discord = pkgs.writeShellScriptBin "discord" ''
+    XDG_SESSION_TYPE=x11 ${pkgs.discord}/bin/discord
+  '';
+in
 
 {
   # Home Manager needs a bit of information about you and the
@@ -46,8 +51,8 @@
   home.file.".config/background.png" = {
     source = ./configs/background;
   };
-
   home.packages = with pkgs; [
+    discord
     neofetch
     hypridle
     nemo
@@ -61,6 +66,7 @@
     prismlauncher
     aseprite
     yt-dlp
+    kdePackages.xwaylandvideobridge
   ];
 
   home.pointerCursor.package = pkgs.catppuccin-cursors.mochaDark;
