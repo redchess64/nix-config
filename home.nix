@@ -58,7 +58,7 @@ in
     nemo
     bemenu
     waybar
-    nerdfonts
+    nerd-fonts.droid-sans-mono
     hyprshot
     hyprpolkitagent
     hyprpaper
