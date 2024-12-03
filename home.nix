@@ -56,7 +56,6 @@ in
     neofetch
     hypridle
     nemo
-    kitty
     bemenu
     waybar
     nerdfonts
@@ -67,6 +66,7 @@ in
     aseprite
     yt-dlp
     kdePackages.xwaylandvideobridge
+    comma
   ];
 
   home.pointerCursor.package = pkgs.catppuccin-cursors.mochaDark;
@@ -82,6 +82,9 @@ in
   };
 
   programs.alacritty.enable = true;
+  programs.alacritty.settings = {
+    bell.duration = 500;
+  };
 
   programs.neovim = {
     enable = true;
@@ -92,7 +95,6 @@ in
   home.shellAliases = {
     l = "ls -lAh";
     "nrs" = "sudo nixos-rebuild switch";
-    "cat" = "bat";
   };
 
   programs.bash = {
@@ -102,6 +104,7 @@ in
       export EDITOR="nvim"
     '';
   };
+
   programs.readline = {
     enable = true;
     extraConfig = ''
@@ -114,6 +117,10 @@ in
   };
 
   programs.bat.enable = true;
+
+  programs.direnv = {
+    enable = true;
+  };
 
   services.polybar = {
     enable = true;
