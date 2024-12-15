@@ -71,6 +71,13 @@ in
 
   home.pointerCursor.package = pkgs.catppuccin-cursors.mochaDark;
   home.pointerCursor.name = "catppuccin-mocha-dark-cursors";
+  home.pointerCursor.size = 32;
+  home.pointerCursor.hyprcursor.size = 32;
+  gtk.cursorTheme.size = 32;
+  gtk.cursorTheme.package = pkgs.catppuccin-cursors.mochaDark;
+  gtk.cursorTheme.name = "catppuccin-mocha-dark-cursors";
+
+  gtk.enable = true;
 
   programs.git = {
     enable = true;
@@ -100,8 +107,14 @@ in
   programs.bash = {
     enable = true;
     bashrcExtra = ''
-      export VISUAL="nvim"
-      export EDITOR="nvim"
+      export VISUAL="nvim";
+      export EDITOR="nvim";
+      export XDG_DATA_HOME="$HOME/.local/share";
+      export XDG_CONFIG_HOME="$HOME/.config";
+      export XDG_STATE_HOME="$HOME/.local/state";
+      export XDG_CACHE_HOME="$HOME/.cache";
+      export HISTFILE="$XDG_STATE_HOME/bash/history";
+      export CARGO_HOME="$XDG_DATA_HOME/cargo";
     '';
   };
 
@@ -117,6 +130,7 @@ in
   };
 
   programs.bat.enable = true;
+  programs.btop.enable = true;
 
   programs.direnv = {
     enable = true;
