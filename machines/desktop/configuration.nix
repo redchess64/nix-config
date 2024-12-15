@@ -75,6 +75,12 @@
   # services.xserver.desktopManager.gnome.enable = true;
 
   services.xserver.windowManager.i3.enable = true;
+  services.xserver.windowManager.qtile = {
+  enable = true;
+  extraPackages = python3Packages: with python3Packages; [
+    qtile-extras
+  ];
+};
 
   # Configure keymap in X11
   services.xserver = {
