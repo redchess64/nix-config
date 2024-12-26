@@ -5,6 +5,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     catppuccin.url = "github:catppuccin/nix";
+    #    ghostty.url = "github:ghostty-org/ghostty";
     # home-manager, used for managing user configuration
     home-manager = {
       url = "github:nix-community/home-manager/";
@@ -22,6 +23,7 @@
       nixpkgs-unstable,
       catppuccin,
       home-manager,
+    #   ghostty,
       ...
     }:
     {
@@ -60,6 +62,11 @@
           modules = [
             ./machines/desktop/configuration.nix
             catppuccin.nixosModules.catppuccin
+            #        {
+            # environment.systemPackages = [
+            #   ghostty.packages.x86_64-linux.default
+            # ];
+           #}
             # make home-manager as a module of nixos
             # so that home-manager configuration will be deployed automatically when executing `nixos-rebuild switch`
             home-manager.nixosModules.home-manager

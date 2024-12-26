@@ -67,6 +67,7 @@ in
     yt-dlp
     kdePackages.xwaylandvideobridge
     comma
+    wev
   ];
 
   home.pointerCursor.package = pkgs.catppuccin-cursors.mochaDark;
@@ -90,13 +91,17 @@ in
 
   programs.alacritty.enable = true;
   programs.alacritty.settings = {
-    bell.duration = 500;
   };
 
   programs.neovim = {
     enable = true;
     viAlias = true;
     vimAlias = true;
+  };
+
+  programs.tmux = {
+    enable = true;
+    baseIndex = 1;
   };
 
   home.shellAliases = {
@@ -157,7 +162,7 @@ in
   catppuccin.enable = true;
 
   programs.hyprlock.enable = true;
-  programs.hyprlock.catppuccin.enable = false;
+  #catppuccin.hyprlock.enable = true;
 
   wayland.windowManager.hyprland = {
     enable = true;

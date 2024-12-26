@@ -76,11 +76,12 @@
 
   services.xserver.windowManager.i3.enable = true;
   services.xserver.windowManager.qtile = {
-  enable = true;
-  extraPackages = python3Packages: with python3Packages; [
-    qtile-extras
-  ];
-};
+    enable = true;
+    extraPackages =
+      python3Packages: with python3Packages; [
+        qtile-extras
+      ];
+  };
 
   # Configure keymap in X11
   services.xserver = {
@@ -131,10 +132,8 @@
       "networkmanager"
       "wheel"
     ];
-    packages =
-      with pkgs;
-      [
-      ];
+    packages = with pkgs; [
+    ];
   };
 
   # Install firefox.
@@ -162,6 +161,7 @@
     git
     unzip
     gcc
+    file
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
