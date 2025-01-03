@@ -16,12 +16,14 @@
   ];
 
   # Bootloader.
-  # boot.loader.grub.enable = true;
-  # boot.loader.grub.device = "/dev/nvme0n1";
-  # boot.loader.grub.useOSProber = true;
-  boot.loader.systemd-boot.enable = true;
+ boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.systemd-boot.configurationLimit = 10;
+
+  virtualisation.podman = {
+  enable = true;
+  dockerCompat = true;
+};
 
   nix.gc = {
     automatic = true;
@@ -162,6 +164,7 @@
     unzip
     gcc
     file
+    distrobox
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

@@ -68,6 +68,8 @@ in
     kdePackages.xwaylandvideobridge
     comma
     wev
+    hyprland-qtutils
+    element-desktop
   ];
 
   home.pointerCursor.package = pkgs.catppuccin-cursors.mochaDark;

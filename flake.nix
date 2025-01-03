@@ -5,7 +5,6 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     catppuccin.url = "github:catppuccin/nix";
-    #    ghostty.url = "github:ghostty-org/ghostty";
     # home-manager, used for managing user configuration
     home-manager = {
       url = "github:nix-community/home-manager/";
@@ -23,33 +22,12 @@
       nixpkgs-unstable,
       catppuccin,
       home-manager,
-    #   ghostty,
       ...
     }:
     {
       formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt-rfc-style;
       nixosConfigurations = {
-        dell_studio = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-
-          modules = [
-            ./machines/dell_studio/configuration.nix
-
-            # make home-manager as a module of nixos
-            # so that home-manager configuration will be deployed automatically when executing `nixos-rebuild switch`
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-
-              # TODO replace ryan with your own username
-              home-manager.users.calebh = import ./home.nix;
-
-              # Optionally, use home-manager.extraSpecialArgs to pass arguments to home.nix
-            }
-          ];
-        };
-        desktop = nixpkgs.lib.nixosSystem rec {
+       desktop = nixpkgs.lib.nixosSystem rec {
           system = "x86_64-linux";
 
           specialArgs = {
