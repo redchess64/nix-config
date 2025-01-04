@@ -52,21 +52,29 @@ in
     aseprite
     yt-dlp
     kdePackages.xwaylandvideobridge
-    comma
     wev
     hyprland-qtutils
     element-desktop
+    kdePackages.kate
   ];
 
-  home.pointerCursor.package = pkgs.catppuccin-cursors.mochaDark;
-  home.pointerCursor.name = "catppuccin-mocha-dark-cursors";
-  home.pointerCursor.size = 32;
-  home.pointerCursor.hyprcursor.size = 32;
-  gtk.cursorTheme.size = 32;
-  gtk.cursorTheme.package = pkgs.catppuccin-cursors.mochaDark;
-  gtk.cursorTheme.name = "catppuccin-mocha-dark-cursors";
+  home.pointerCursor = {
+    package = pkgs.catppuccin-cursors.mochaDark;
+    name = "catppuccin-mocha-dark-cursors";
+    size = 32;
+    hyprcursor.size = 32;
 
-  gtk.enable = true;
+  };
+
+  gtk = {
+    enable = true;
+    cursorTheme = {
+      size = 32;
+      package = pkgs.catppuccin-cursors.mochaDark;
+      name = "catppuccin-mocha-dark-cursors";
+    };
+
+  };
 
   programs.git = {
     enable = true;
@@ -78,8 +86,6 @@ in
   };
 
   programs.alacritty.enable = true;
-  programs.alacritty.settings = {
-  };
 
   programs.neovim = {
     enable = true;
@@ -127,24 +133,6 @@ in
 
   programs.direnv = {
     enable = true;
-  };
-
-  services.polybar = {
-    enable = true;
-    script = ''
-      polybar-msg cmd quit 
-      echo "---" | tee -a /tmp/polybar1.log /tmp/polybar2.log
-      polybar -c ~/.config/polybar/config.ini default 2>&1 | tee -a /tmp/polybar1.log & disown
-    '';
-  };
-
-  services.picom = {
-    enable = true;
-    backend = "xrender";
-    vSync = true;
-    settings = {
-      corner-radius = 10;
-    };
   };
 
   catppuccin.enable = true;
