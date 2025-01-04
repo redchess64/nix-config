@@ -69,6 +69,11 @@
     xwayland.enable = true;
   };
 
+  programs.sway = {
+    enable = true;
+    wrapperFeatures.gtk = true;
+  };
+
   # Enable CUPS to print documents.
   services.printing.enable = true;
 

@@ -6,7 +6,7 @@
 }:
 let
   discord = pkgs.writeShellScriptBin "discord" ''
-    XDG_SESSION_TYPE=x11 ${pkgs.discord}/bin/discord
+    XDG_SESSION_TYPE=x11 ${pkgs.discord}/bin/discord --enable-features=UseOzonePlatform --ozone-platform=wayland
   '';
 in
 
@@ -35,27 +35,35 @@ in
     ".config/background.png" = {
       source = ./configs/background;
     };
+    ".config/sway/" = {
+      source = ./configs/sway;
+      recursive = true;
+    };
   };
 
   home.packages = with pkgs; [
+    # Desktop applications
     discord
-    neofetch
-    hypridle
-    nemo
-    bemenu
-    waybar
-    nerd-fonts.droid-sans-mono
-    hyprshot
-    hyprpolkitagent
-    hyprpaper
-    prismlauncher
     aseprite
+    prismlauncher
+    nemo
+    kdePackages.kate
+    element-desktop
+
+    # CLI applications
+    neofetch
     yt-dlp
+
+    # Sway utilitys
+    wl-clipboard
+    mako
+    autotiling
+
+    # Other
+    nerd-fonts.droid-sans-mono
     kdePackages.xwaylandvideobridge
     wev
-    hyprland-qtutils
-    element-desktop
-    kdePackages.kate
+    hyprshot
   ];
 
   home.pointerCursor = {
@@ -136,14 +144,6 @@ in
   };
 
   catppuccin.enable = true;
-
-  programs.hyprlock.enable = true;
-  #catppuccin.hyprlock.enable = true;
-
-  wayland.windowManager.hyprland = {
-    enable = true;
-    xwayland.enable = true;
-  };
 
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage
