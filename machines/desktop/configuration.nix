@@ -14,6 +14,10 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.systemd-boot.configurationLimit = 10;
 
+  # seems to stop hyprland graphical glitchs
+  services.xserver.enable = true;
+  services.xserver.videoDrivers = [ "amdgpu" ];
+
   nix.gc = {
     automatic = true;
     dates = "weekly";
