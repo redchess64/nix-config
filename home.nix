@@ -16,41 +16,27 @@ in
   home.username = "calebh";
   home.homeDirectory = "/home/calebh";
 
-  home.file.".config/i3/config" = {
-    source = ./configs/i3/config;
-    recursive = true; # link recursively
-    executable = true; # make all files executable
+  home.file = {
+    ".config/nvim/" = {
+      source = ./configs/nvim;
+      recursive = true;
+    };
+    ".config/hypr/" = {
+      source = ./configs/hypr;
+      recursive = true;
+    };
+    ".config/waybar/" = {
+      source = ./configs/waybar;
+      recursive = true;
+    };
+    ".config/lock_background.png" = {
+      source = ./configs/lock_background;
+    };
+    ".config/background.png" = {
+      source = ./configs/background;
+    };
   };
 
-  home.file.".config/polybar/" = {
-    source = ./configs/polybar;
-    recursive = true;
-    executable = true;
-  };
-
-  home.file.".config/nvim/" = {
-    source = ./configs/nvim;
-    recursive = true;
-  };
-
-  home.file.".config/hypr/" = {
-    source = ./configs/hypr;
-    recursive = true;
-  };
-
-  home.file.".config/waybar/" = {
-    source = ./configs/waybar;
-    recursive = true;
-  };
-
-  home.file.".config/lock_background.png" = {
-    source = ./configs/lock_background;
-    # recursive = true;
-  };
-
-  home.file.".config/background.png" = {
-    source = ./configs/background;
-  };
   home.packages = with pkgs; [
     discord
     neofetch
