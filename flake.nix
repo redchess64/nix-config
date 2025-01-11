@@ -5,6 +5,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     catppuccin.url = "github:catppuccin/nix";
+    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     # home-manager, used for managing user configuration
     home-manager = {
       url = "github:nix-community/home-manager/";
@@ -22,6 +23,7 @@
       nixpkgs-unstable,
       catppuccin,
       home-manager,
+      chaotic,
       ...
     }:
     {
@@ -40,6 +42,7 @@
           modules = [
             ./machines/desktop/configuration.nix
             catppuccin.nixosModules.catppuccin
+            chaotic.nixosModules.default
             #        {
             # environment.systemPackages = [
             #   ghostty.packages.x86_64-linux.default

@@ -6,7 +6,8 @@
 }:
 let
   discord = pkgs.writeShellScriptBin "discord" ''
-    XDG_SESSION_TYPE=x11 ${pkgs.discord}/bin/discord --enable-features=UseOzonePlatform --ozone-platform=wayland
+    XDG_SESSION_TYPE=x11 ${pkgs.discord}/bin/discord
+    # --enable-features=UseOzonePlatform --ozone-platform=wayland
   '';
 in
 
@@ -53,11 +54,13 @@ in
     # CLI applications
     neofetch
     yt-dlp
+    fzf
 
     # Sway utilitys
     wl-clipboard
     mako
     autotiling
+    xdg-desktop-portal-wlr
 
     # Other
     nerd-fonts.droid-sans-mono
