@@ -111,7 +111,7 @@ in
 
   home.shellAliases = {
     l = "ls -lAh";
-    "nrs" = "sudo nixos-rebuild switch";
+    "nrs" = "nixos-rebuild switch --use-remote-sudo";
   };
 
   programs.bash = {
