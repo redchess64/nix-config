@@ -9,6 +9,9 @@ let
     XDG_SESSION_TYPE=x11 ${pkgs.discord}/bin/discord
     # --enable-features=UseOzonePlatform --ozone-platform=wayland
   '';
+  get = pkgs.writeShellScriptBin "get" ''
+    nix shell nixpkgs#$1
+  '';
 in
 
 {
@@ -55,6 +58,7 @@ in
     neofetch
     yt-dlp
     fzf
+    get
 
     # Sway utilitys
     wl-clipboard
@@ -67,6 +71,8 @@ in
     kdePackages.xwaylandvideobridge
     wev
     hyprshot
+    lm_sensors
+    rocmPackages.rocm-smi
   ];
 
   home.pointerCursor = {
@@ -111,7 +117,7 @@ in
 
   home.shellAliases = {
     l = "ls -lAh";
-    "nrs" = "nixos-rebuild switch --use-remote-sudo";
+    "nrs" = "sudo nixos-rebuild switch";
   };
 
   programs.bash = {
