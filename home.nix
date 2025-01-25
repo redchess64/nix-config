@@ -79,8 +79,6 @@ in
     package = pkgs.catppuccin-cursors.mochaDark;
     name = "catppuccin-mocha-dark-cursors";
     size = 32;
-    hyprcursor.size = 32;
-
   };
 
   gtk = {
