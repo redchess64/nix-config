@@ -10,6 +10,20 @@
     ./hardware-configuration.nix
   ];
 
+  swapDevices = [{
+    device = "/swapfile";
+    size = 16 * 1024; # 16GB
+  }];
+
+  # networking.nameservers = [ "1.1.1.1" ];
+  #   networking.dhcpcd.extraConfig = ''
+  #   nohook resolv.conf
+  # '';
+
+  environment.etc = {
+    "resolv.conf".text = "nameserver 1.1.1.1\n";
+  };
+
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.systemd-boot.configurationLimit = 10;

@@ -48,6 +48,7 @@ in
   home.packages = with pkgs; [
     # Desktop applications
     discord
+    vesktop
     aseprite
     prismlauncher
     nemo
@@ -84,7 +85,7 @@ in
   gtk = {
     enable = true;
     cursorTheme = {
-      size = 32;
+      size = 24;
       package = pkgs.catppuccin-cursors.mochaDark;
       name = "catppuccin-mocha-dark-cursors";
     };
