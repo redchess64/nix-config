@@ -3,8 +3,7 @@
   pkgs,
   pkgs-unstable,
   ...
-}:
-let
+}: let
   discord = pkgs.writeShellScriptBin "discord" ''
     XDG_SESSION_TYPE=x11 ${pkgs.discord}/bin/discord
     # --enable-features=UseOzonePlatform --ozone-platform=wayland
@@ -12,19 +11,17 @@ let
   get = pkgs.writeShellScriptBin "get" ''
     nix shell nixpkgs#$1
   '';
-in
-
-{
+in {
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
   home.username = "calebh";
   home.homeDirectory = "/home/calebh";
 
   home.file = {
-    ".config/nvim/" = {
-      source = ./configs/nvim;
-      recursive = true;
-    };
+    #     ".config/nvim/" = {
+    #       source = ./configs/nvim;
+    #       recursive = true;
+    #     };
     ".config/hypr/" = {
       source = ./configs/hypr;
       recursive = true;
@@ -54,12 +51,14 @@ in
     nemo
     kdePackages.kate
     element-desktop
+    qemu
 
     # CLI applications
     neofetch
     yt-dlp
     fzf
     get
+
 
     # Sway utilitys
     wl-clipboard
@@ -74,6 +73,7 @@ in
     hyprshot
     lm_sensors
     rocmPackages.rocm-smi
+    pmbootstrap
   ];
 
   home.pointerCursor = {
@@ -89,7 +89,6 @@ in
       package = pkgs.catppuccin-cursors.mochaDark;
       name = "catppuccin-mocha-dark-cursors";
     };
-
   };
 
   programs.git = {
@@ -103,11 +102,11 @@ in
 
   programs.alacritty.enable = true;
 
-  programs.neovim = {
-    enable = true;
-    viAlias = true;
-    vimAlias = true;
-  };
+  #   programs.neovim = {
+  #     enable = true;
+  #     viAlias = true;
+  #     vimAlias = true;
+  #   };
 
   programs.tmux = {
     enable = true;

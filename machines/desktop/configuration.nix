@@ -3,17 +3,17 @@
   pkgs,
   pkgs-unstable,
   ...
-}:
-
-{
+}: {
   imports = [
     ./hardware-configuration.nix
   ];
 
-  swapDevices = [{
-    device = "/swapfile";
-    size = 16 * 1024; # 16GB
-  }];
+  swapDevices = [
+    {
+      device = "/swapfile";
+      size = 16 * 1024; # 16GB
+    }
+  ];
 
   # networking.nameservers = [ "1.1.1.1" ];
   #   networking.dhcpcd.extraConfig = ''
@@ -30,7 +30,7 @@
 
   # seems to stop hyprland graphical glitchs
   services.xserver.enable = true;
-  services.xserver.videoDrivers = [ "amdgpu" ];
+  services.xserver.videoDrivers = ["amdgpu"];
 
   nix.gc = {
     automatic = true;
@@ -88,6 +88,55 @@
     wrapperFeatures.gtk = true;
   };
 
+  programs.nvf = {
+    enable = true;
+    # your settings need to go into the settings attribute set
+    # most settings are documented in the appendix
+    settings = {
+      vim = {
+        viAlias = true;
+        vimAlias = true;
+        lsp.enable = true;
+
+        luaConfigRC = {
+          a = ''
+            vim.opt.list = true
+            vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
+          '';
+        }; 
+
+        languages = {
+          enableLSP = true;
+          enableFormat = true;
+          enableTreesitter = true;
+
+          rust.enable = true;
+          nix.enable = true;
+          markdown.enable = true;
+        };
+
+         theme = {
+          enable = true;
+          name = "catppuccin";
+          style = "mocha";
+        };                       
+
+        mini = {
+          basics.enable = true;
+          completion.enable = true;
+        };
+
+        telescope.enable = true;
+
+        extraPlugins = with pkgs.vimPlugins; {
+          vim-sleuth = {
+            package = vim-sleuth;
+          };
+        };
+      };
+    };
+  };
+
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
@@ -97,7 +146,7 @@
     openFirewall = true;
   };
 
-  nix.settings.trusted-users = [ "*" ];
+  nix.settings.trusted-users = ["*"];
 
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
@@ -141,7 +190,7 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  security.pam.services.hyprlock = { };
+  security.pam.services.hyprlock = {};
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -167,5 +216,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.11"; # Did you read the comment?
-
 }
