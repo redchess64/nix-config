@@ -32,15 +32,21 @@
   services.xserver.enable = true;
   services.xserver.videoDrivers = ["amdgpu"];
 
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 1w";
+
+  nix = {
+    settings.auto-optimise-store = true;
+    settings.system-features = ["kvm"];
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 1w";
   };
 
-  nix.settings.auto-optimise-store = true;
+
+  };
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelModules = ["kvm-amd"];
 
   networking.hostName = "desktop"; # Define your hostname.
 
@@ -170,6 +176,9 @@
     extraGroups = [
       "networkmanager"
       "wheel"
+      "qemu-libvirtd"
+      "libvirtd"
+      "kvm"
     ];
     packages = with pkgs; [
     ];

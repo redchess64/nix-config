@@ -9,7 +9,7 @@
     # --enable-features=UseOzonePlatform --ozone-platform=wayland
   '';
   get = pkgs.writeShellScriptBin "get" ''
-    nix shell nixpkgs#$1
+    nix shell nixpkgs#$1 --command sh 'export PS1="\n\[\033[1;32m\][nix-shell:\w]\$\[\033[0m\]"'
   '';
 in {
   # Home Manager needs a bit of information about you and the
