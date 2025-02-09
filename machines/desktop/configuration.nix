@@ -155,7 +155,7 @@
   nix.settings.trusted-users = ["*"];
 
   # Enable sound with pipewire.
-  services.pulseaudio.enable = false;
+
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;

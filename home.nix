@@ -67,7 +67,7 @@ in {
     xdg-desktop-portal-wlr
 
     # Other
-    nerd-fonts.droid-sans-mono
+    (nerdfonts.override { fonts = [ "DroidSansMono" ]; })
     kdePackages.xwaylandvideobridge
     wev
     hyprshot
