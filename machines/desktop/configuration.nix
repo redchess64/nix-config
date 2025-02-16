@@ -30,12 +30,12 @@
 
   # seems to stop hyprland graphical glitchs
   services.xserver.enable = true;
-  services.xserver.videoDrivers = ["amdgpu"];
+  services.xserver.videoDrivers = ["amdgpu" ];
 
 
   nix = {
     settings.auto-optimise-store = true;
-    settings.system-features = ["kvm"];
+    settings.system-features = ["kvm" "fuse"];
     gc = {
       automatic = true;
       dates = "weekly";
