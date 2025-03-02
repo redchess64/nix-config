@@ -31,6 +31,9 @@
   # seems to stop hyprland graphical glitchs
   services.xserver.enable = true;
   services.xserver.videoDrivers = ["amdgpu" ];
+  
+
+  virtualisation.docker.enable = true;
 
 
   nix = {
