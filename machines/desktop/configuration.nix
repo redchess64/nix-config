@@ -97,54 +97,54 @@
     wrapperFeatures.gtk = true;
   };
 
-  programs.nvf = {
-    enable = true;
-    # your settings need to go into the settings attribute set
-    # most settings are documented in the appendix
-    settings = {
-      vim = {
-        viAlias = true;
-        vimAlias = true;
-        lsp.enable = true;
-
-        luaConfigRC = {
-          a = ''
-            vim.opt.list = true
-            vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
-          '';
-        }; 
-
-        languages = {
-          enableLSP = true;
-          enableFormat = true;
-          enableTreesitter = true;
-
-          rust.enable = true;
-          nix.enable = true;
-          markdown.enable = true;
-        };
-
-         theme = {
-          enable = true;
-          name = "catppuccin";
-          style = "mocha";
-        };                       
-
-        mini = {
-          basics.enable = true;
-          completion.enable = true;
-        };
-
-        telescope.enable = true;
-
-        extraPlugins = with pkgs.vimPlugins; {
-          vim-sleuth = {
-            package = vim-sleuth;
+    programs.nvf = {
+      enable = true;
+      # your settings need to go into the settings attribute set
+      # most settings are documented in the appendix
+      settings = {
+        vim = {
+          viAlias = true;
+          vimAlias = true;
+          lsp.enable = true;
+  
+          luaConfigRC = {
+            a = ''
+              vim.opt.list = true
+              vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
+            '';
+          }; 
+  
+          languages = {
+            enableLSP = true;
+            enableFormat = true;
+            enableTreesitter = true;
+  
+            rust.enable = true;
+            nix.enable = true;
+            markdown.enable = true;
+          };
+  
+           theme = {
+            enable = true;
+            name = "catppuccin";
+            style = "mocha";
+          };                       
+  
+          mini = {
+            basics.enable = true;
+            completion.enable = true;
+          };
+  
+          telescope.enable = true;
+  
+          extraPlugins = with pkgs.vimPlugins; {
+            vim-sleuth = {
+              package = vim-sleuth;
+            };
           };
         };
       };
     };
-  };
 
   # Enable CUPS to print documents.
   services.printing.enable = true;

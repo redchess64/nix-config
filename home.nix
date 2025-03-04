@@ -51,14 +51,14 @@ in {
     nemo
     kdePackages.kate
     element-desktop
-    qemu
+    drawing
 
     # CLI applications
     neofetch
     yt-dlp
     fzf
     get
-
+    qemu
 
     # Sway utilitys
     wl-clipboard
