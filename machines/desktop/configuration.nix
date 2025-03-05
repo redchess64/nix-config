@@ -106,10 +106,16 @@
           viAlias = true;
           vimAlias = true;
           lsp.enable = true;
-  
+
+          options = {
+            tabstop = 4;
+            shiftwidth = 4;
+            expandtab = false;
+            list = true;
+          };
+
           luaConfigRC = {
             a = ''
-              vim.opt.list = true
               vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
             '';
           }; 
@@ -171,6 +177,14 @@
     # use the example session manager (no others are packaged yet so this is enabled by default,
     # no need to redefine it in your config for now)
     #media-session.enable = true;
+  };
+
+  services.syncthing = {
+    enable = true;
+    user = "calebh";
+    group = "users";
+    configDir = "/home/calebh/.config/syncthing";
+    dataDir = "/home/calebh";
   };
 
   users.users.calebh = {
