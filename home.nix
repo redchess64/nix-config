@@ -9,7 +9,7 @@
     # --enable-features=UseOzonePlatform --ozone-platform=wayland
   '';
   get = pkgs.writeShellScriptBin "get" ''
-    nix shell nixpkgs#$1 --command sh 'export PS1="\n\[\033[1;32m\][nix-shell:\w]\$\[\033[0m\]"'
+    nix-shell -p $1
   '';
 in {
   # Home Manager needs a bit of information about you and the
@@ -160,7 +160,7 @@ in {
   # You can update Home Manager without changing this value. See
   # the Home Manager release notes for a list of state version
   # changes in each release.
-  home.stateVersion = "23.11";
+  home.stateVersion = "24.11";
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;

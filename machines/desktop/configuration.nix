@@ -8,20 +8,13 @@
     ./hardware-configuration.nix
   ];
 
-  swapDevices = [
-    {
-      device = "/swapfile";
-      size = 16 * 1024; # 16GB
-    }
-  ];
-
   # networking.nameservers = [ "1.1.1.1" ];
   #   networking.dhcpcd.extraConfig = ''
   #   nohook resolv.conf
   # '';
 
   environment.etc = {
-    "resolv.conf".text = "nameserver 1.1.1.1\n";
+    "resolv.conf".text = "nameserver 1.1.1.1\nnameserver 8.8.8.8";
   };
 
   boot.loader.systemd-boot.enable = true;
@@ -37,7 +30,7 @@
 
 
   nix = {
-    settings.auto-optimise-store = true;
+    settings.auto-optimise-store = false;
     settings.system-features = ["kvm" "fuse"];
     gc = {
       automatic = true;
@@ -208,6 +201,9 @@
     enable = true;
     remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
     dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+    extraCompatPackages = with pkgs; [
+      proton-ge-bin
+    ];
     #  localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
   };
 
@@ -241,5 +237,5 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "23.11"; # Did you read the comment?
+  system.stateVersion = "24.11"; # Did you read the comment?
 }
