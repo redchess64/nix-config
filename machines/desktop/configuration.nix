@@ -121,6 +121,7 @@
             rust.enable = true;
             nix.enable = true;
             markdown.enable = true;
+            java.enable = true;
           };
   
            theme = {
@@ -210,7 +211,15 @@
   programs.nix-ld.enable = true;
 
   # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
+  # nixpkgs.config.allowUnfree = true;
+
+  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (pkgs.lib.getName pkg) [
+    "discord"
+    "vesktop"
+    "steam"
+    "aseprite"
+    "steam-unwrapped"
+  ];
 
   security.pam.services.hyprlock = {};
 
@@ -223,6 +232,7 @@
     unzip
     gcc
     file
+    memtest86plus
   ];
 
   # Open ports in the firewall.
