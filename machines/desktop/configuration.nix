@@ -2,16 +2,18 @@
   config,
   pkgs,
   pkgs-unstable,
+  inputs,
   ...
-}: {
+}:
+
+let
+  spicetify-nix = inputs.spicetify-nix;
+  spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.stdenv.system};
+in
+{
   imports = [
     ./hardware-configuration.nix
   ];
-
-  # networking.nameservers = [ "1.1.1.1" ];
-  #   networking.dhcpcd.extraConfig = ''
-  #   nohook resolv.conf
-  # '';
 
   environment.etc = {
     "resolv.conf".text = "nameserver 1.1.1.1\nnameserver 8.8.8.8";
@@ -23,11 +25,9 @@
 
   # seems to stop hyprland graphical glitchs
   services.xserver.enable = true;
-  services.xserver.videoDrivers = ["amdgpu" ];
-  
+  services.xserver.videoDrivers = ["amdgpu"];
 
   virtualisation.docker.enable = true;
-
 
   nix = {
     settings.auto-optimise-store = false;
@@ -36,9 +36,7 @@
       automatic = true;
       dates = "weekly";
       options = "--delete-older-than 1w";
-  };
-
-
+    };
   };
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
@@ -90,61 +88,70 @@
     wrapperFeatures.gtk = true;
   };
 
-    programs.nvf = {
-      enable = true;
-      # your settings need to go into the settings attribute set
-      # most settings are documented in the appendix
-      settings = {
-        vim = {
-          viAlias = true;
-          vimAlias = true;
-          lsp.enable = true;
+  programs.nvf = {
+    enable = true;
+    # your settings need to go into the settings attribute set
+    # most settings are documented in the appendix
+    settings = {
+      vim = {
+        viAlias = true;
+        vimAlias = true;
+        lsp.enable = true;
 
-          options = {
-            tabstop = 4;
-            shiftwidth = 4;
-            expandtab = false;
-            list = true;
-          };
+        options = {
+          tabstop = 4;
+          shiftwidth = 4;
+          expandtab = false;
+          list = true;
+        };
 
-          luaConfigRC = {
-            a = ''
-              vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
-            '';
-          }; 
-  
-          languages = {
-            enableLSP = true;
-            enableFormat = true;
-            enableTreesitter = true;
-  
-            rust.enable = true;
-            nix.enable = true;
-            markdown.enable = true;
-            java.enable = true;
-          };
-  
-           theme = {
-            enable = true;
-            name = "catppuccin";
-            style = "mocha";
-          };                       
-  
-          mini = {
-            basics.enable = true;
-            completion.enable = true;
-          };
-  
-          telescope.enable = true;
-  
-          extraPlugins = with pkgs.vimPlugins; {
-            vim-sleuth = {
-              package = vim-sleuth;
-            };
+        luaConfigRC = {
+          a = ''
+            vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
+          '';
+        };
+
+        languages = {
+          enableLSP = true;
+          enableFormat = true;
+          enableTreesitter = true;
+
+          rust.enable = true;
+          nix.enable = true;
+          markdown.enable = true;
+          java.enable = true;
+        };
+
+        theme = {
+          enable = true;
+          name = "catppuccin";
+          style = "mocha";
+        };
+
+        mini = {
+          basics.enable = true;
+          completion.enable = true;
+        };
+
+        telescope.enable = true;
+
+        extraPlugins = with pkgs.vimPlugins; {
+          vim-sleuth = {
+            package = vim-sleuth;
           };
         };
       };
     };
+  };
+
+  programs.spicetify = {
+    enable = true;
+    enabledExtensions = with spicePkgs.extensions; [
+       adblockify
+     ];
+     theme = spicePkgs.themes.catppuccin;
+     colorScheme = "mocha";
+  };
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -213,13 +220,14 @@
   # Allow unfree packages
   # nixpkgs.config.allowUnfree = true;
 
-  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (pkgs.lib.getName pkg) [
-    "discord"
-    "vesktop"
-    "steam"
-    "aseprite"
-    "steam-unwrapped"
-  ];
+  nixpkgs.config.allowUnfreePredicate = pkg:
+    builtins.elem (pkgs.lib.getName pkg) [
+      "vesktop"
+      "steam"
+      "steam-unwrapped"
+      "aseprite"
+      "spotify"
+    ];
 
   security.pam.services.hyprlock = {};
 

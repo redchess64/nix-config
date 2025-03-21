@@ -4,10 +4,6 @@
   pkgs-unstable,
   ...
 }: let
-  discord = pkgs.writeShellScriptBin "discord" ''
-    XDG_SESSION_TYPE=x11 ${pkgs.discord}/bin/discord
-    # --enable-features=UseOzonePlatform --ozone-platform=wayland
-  '';
   get = pkgs.writeShellScriptBin "get" ''
     nix-shell -p $1
   '';
@@ -44,7 +40,6 @@ in {
 
   home.packages = with pkgs; [
     # Desktop applications
-    discord
     vesktop
     aseprite
     prismlauncher
@@ -65,10 +60,10 @@ in {
     mako
     autotiling
     xdg-desktop-portal-wlr
+    playerctl
 
     # Other
-    (nerdfonts.override { fonts = [ "DroidSansMono" ]; })
-    kdePackages.xwaylandvideobridge
+    (nerdfonts.override {fonts = ["DroidSansMono"];})
     wev
     hyprshot
     lm_sensors
