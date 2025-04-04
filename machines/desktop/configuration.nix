@@ -4,13 +4,10 @@
   pkgs-unstable,
   inputs,
   ...
-}:
-
-let
+}: let
   spicetify-nix = inputs.spicetify-nix;
   spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.stdenv.system};
-in
-{
+in {
   imports = [
     ./hardware-configuration.nix
   ];
@@ -19,28 +16,77 @@ in
     "resolv.conf".text = "nameserver 1.1.1.1\nnameserver 8.8.8.8";
   };
 
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.systemd-boot.configurationLimit = 10;
+  boot = {
+    loader = {
+      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = true;
+      systemd-boot.configurationLimit = 10;
+    };
+    kernelPackages = pkgs.linuxPackages_latest;
+    kernelModules = ["kvm-amd"];
+  };
 
-  # seems to stop hyprland graphical glitchs
-  services.xserver.enable = true;
-  services.xserver.videoDrivers = ["amdgpu"];
+  services = {
+    xserver = {
+      enable = true;
+      videoDrivers = ["amdgpu"];
+      xkb = {
+        layout = "us";
+        variant = "";
+      };
+    };
+
+    displayManager.sddm = {
+      enable = true;
+      wayland.enable = true;
+    };
+
+    printing.enable = true;
+
+    avahi = {
+      enable = true;
+      nssmdns4 = true;
+      openFirewall = true;
+    };
+
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+
+      # use the example session manager (no others are packaged yet so this is enabled by default,
+      # no need to redefine it in your config for now)
+      #media-session.enable = true;
+    };
+
+    syncthing = {
+      enable = true;
+      user = "calebh";
+      group = "users";
+      configDir = "/home/calebh/.config/syncthing";
+      dataDir = "/home/calebh";
+    };
+
+    flatpak.enable = true;
+  };
 
   virtualisation.docker.enable = true;
 
   nix = {
-    settings.auto-optimise-store = false;
-    settings.system-features = ["kvm" "fuse"];
+    settings = {
+      auto-optimise-store = true;
+      system-features = ["kvm" "fuse"];
+      experimental-features = ["nix-command" "flakes"];
+      trusted-users = ["*"];
+    };
+
     gc = {
       automatic = true;
       dates = "weekly";
       options = "--delete-older-than 1w";
     };
   };
-
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.kernelModules = ["kvm-amd"];
 
   networking.hostName = "desktop"; # Define your hostname.
 
@@ -63,19 +109,6 @@ in
     LC_PAPER = "en_US.UTF-8";
     LC_TELEPHONE = "en_US.UTF-8";
     LC_TIME = "en_US.UTF-8";
-  };
-
-  services.displayManager.sddm.wayland.enable = true;
-  services.displayManager.sddm.enable = true;
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
-
-  # Configure keymap in X11
-  services.xserver = {
-    xkb.layout = "us";
-    xkb.variant = "";
   };
 
   programs.hyprland = {
@@ -147,46 +180,13 @@ in
   programs.spicetify = {
     enable = true;
     enabledExtensions = with spicePkgs.extensions; [
-       adblockify
-     ];
-     theme = spicePkgs.themes.catppuccin;
-     colorScheme = "mocha";
+      adblockify
+    ];
+    theme = spicePkgs.themes.catppuccin;
+    colorScheme = "mocha";
   };
-
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
-
-  services.avahi = {
-    enable = true;
-    # nssmdns4 = true;
-    openFirewall = true;
-  };
-
-  nix.settings.trusted-users = ["*"];
-
-  # Enable sound with pipewire.
 
   security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
-
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
-  };
-
-  services.syncthing = {
-    enable = true;
-    user = "calebh";
-    group = "users";
-    configDir = "/home/calebh/.config/syncthing";
-    dataDir = "/home/calebh";
-  };
 
   users.users.calebh = {
     isNormalUser = true;
@@ -229,18 +229,14 @@ in
       "spotify"
     ];
 
-  security.pam.services.hyprlock = {};
-
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    #  wget
+    wget
     home-manager
     git
     unzip
-    gcc
     file
-    memtest86plus
   ];
 
   # Open ports in the firewall.
