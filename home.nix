@@ -54,6 +54,7 @@ in {
     fzf
     get
     qemu
+    packwiz
 
     # Sway utilitys
     wl-clipboard

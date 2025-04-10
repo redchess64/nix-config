@@ -75,7 +75,6 @@ in {
 
   nix = {
     settings = {
-      auto-optimise-store = true;
       system-features = ["kvm" "fuse"];
       experimental-features = ["nix-command" "flakes"];
       trusted-users = ["*"];
@@ -151,7 +150,6 @@ in {
 
           rust.enable = true;
           nix.enable = true;
-          markdown.enable = true;
           java.enable = true;
         };
 
@@ -237,6 +235,7 @@ in {
     git
     unzip
     file
+    moreutils
   ];
 
   # Open ports in the firewall.
