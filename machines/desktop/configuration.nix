@@ -22,14 +22,26 @@ in {
       efi.canTouchEfiVariables = true;
       systemd-boot.configurationLimit = 10;
     };
-    kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.linuxPackages;
     kernelModules = ["kvm-amd"];
+    kernel.sysctl."kernel.sysrq" = 1;
+  };
+
+  hardware.graphics = {
+    enable = true;
+  };
+
+  hardware.nvidia = {
+    open = true;
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
+    modesetting.enable = true;
+    nvidiaSettings = true;
   };
 
   services = {
     xserver = {
       enable = true;
-      videoDrivers = ["amdgpu"];
+      videoDrivers = ["nvidia"];
       xkb = {
         layout = "us";
         variant = "";
@@ -225,6 +237,8 @@ in {
       "steam-unwrapped"
       "aseprite"
       "spotify"
+      "nvidia-x11"
+      "nvidia-settings"
     ];
 
   # List packages installed in system profile. To search, run:
