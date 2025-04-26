@@ -23,4 +23,6 @@
   };
 
   services.xserver.videoDrivers = ["nvidia"];
+
+  networking.hostName = "desktop";
 }

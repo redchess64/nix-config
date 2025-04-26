@@ -26,7 +26,6 @@ in {
   services = {
     xserver = {
       enable = true;
-      videoDrivers = ["nvidia"];
       xkb = {
         layout = "us";
         variant = "";
@@ -83,8 +82,6 @@ in {
       options = "--delete-older-than 1w";
     };
   };
-
-  networking.hostName = "desktop"; # Define your hostname.
 
   # Enable networking
   networking.networkmanager.enable = true;
