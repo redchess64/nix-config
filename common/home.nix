@@ -19,21 +19,21 @@ in {
     #       recursive = true;
     #     };
     ".config/hypr/" = {
-      source = ./configs/hypr;
+      source = ../configs/hypr;
       recursive = true;
     };
     ".config/waybar/" = {
-      source = ./configs/waybar;
+      source = ../configs/waybar;
       recursive = true;
     };
     ".config/lock_background.png" = {
-      source = ./configs/lock_background;
+      source = ../configs/lock_background;
     };
     ".config/background.png" = {
-      source = ./configs/background;
+      source = ../configs/background;
     };
     ".config/sway/" = {
-      source = ./configs/sway;
+      source = ../configs/sway;
       recursive = true;
     };
   };
