@@ -17,12 +17,9 @@ in {
 
   boot = {
     loader = {
-      systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
-      systemd-boot.configurationLimit = 10;
     };
     kernelPackages = pkgs.linuxPackages;
-    kernelModules = ["kvm-amd"];
     kernel.sysctl."kernel.sysrq" = 1;
   };
 
