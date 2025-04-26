@@ -44,7 +44,7 @@
         };
 
         modules = [
-          ./machines/desktop/configuration.nix
+          ./machines/desktop/hardware.nix
           ./common/common.nix
         ];
       };

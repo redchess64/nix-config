@@ -9,7 +9,6 @@
   spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.stdenv.system};
 in {
   imports = [
-    ./hardware-configuration.nix
   ];
 
   environment.etc = {
