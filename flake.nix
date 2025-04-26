@@ -45,18 +45,17 @@
 
         modules = [
           ./machines/desktop/configuration.nix
-          catppuccin.nixosModules.catppuccin
-          nvf.nixosModules.default
-          spicetify-nix.nixosModules.default
+          ./common/common.nix
+          # catppuccin.nixosModules.catppuccin
+          # nvf.nixosModules.default
+          # spicetify-nix.nixosModules.default
 
-          # make home-manager as a module of nixos
-          # so that home-manager configuration will be deployed automatically when executing `nixos-rebuild switch`
-          home-manager.nixosModules.home-manager
+          # # make home-manager as a module of nixos
+          # # so that home-manager configuration will be deployed automatically when executing `nixos-rebuild switch`
+          # home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-
-            # TODO replace ryan with your own username
             home-manager.users.calebh = {
               imports = [
                 ./home.nix
