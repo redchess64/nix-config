@@ -23,17 +23,6 @@ in {
     kernel.sysctl."kernel.sysrq" = 1;
   };
 
-  hardware.graphics = {
-    enable = true;
-  };
-
-  hardware.nvidia = {
-    open = true;
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
-    modesetting.enable = true;
-    nvidiaSettings = true;
-  };
-
   services = {
     xserver = {
       enable = true;

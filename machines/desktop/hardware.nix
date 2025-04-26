@@ -1,4 +1,4 @@
-{...}: {
+{config, ...}: {
   imports = [
     ./generated-hardware.nix
     ./configuration.nix
@@ -10,4 +10,17 @@
     };
     kernelModules = ["kvm-amd"];
   };
+
+  hardware.graphics = {
+    enable = true;
+  };
+
+  hardware.nvidia = {
+    open = true;
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
+    modesetting.enable = true;
+    nvidiaSettings = true;
+  };
+
+  services.xserver.videoDrivers = ["nvidia"];
 }
