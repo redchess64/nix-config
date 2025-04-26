@@ -1,1 +1,1 @@
-{...}: {imports = [./modules.nix];}
+{...}: {imports = [./modules.nix ./configuration.nix];}

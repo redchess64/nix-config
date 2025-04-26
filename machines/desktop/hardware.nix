@@ -1,7 +1,6 @@
 {config, ...}: {
   imports = [
     ./generated-hardware.nix
-    ./configuration.nix
   ];
   boot = {
     loader = {
