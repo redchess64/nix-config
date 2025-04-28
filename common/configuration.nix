@@ -1,11 +1,10 @@
 {
-  config,
   pkgs,
-  pkgs-unstable,
+  # pkgs-unstable,
   inputs,
   ...
 }: let
-  spicetify-nix = inputs.spicetify-nix;
+  # spicetify-nix = inputs.spicetify-nix;
   spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.stdenv.system};
 in {
   imports = [
@@ -32,9 +31,13 @@ in {
       };
     };
 
-    displayManager.sddm = {
+    greetd = {
       enable = true;
-      wayland.enable = true;
+      settings = {
+        default_session = {
+          command = "${pkgs.greetd.greetd}/bin/agreety --cmd \"sway --unsupported-gpu\"";
+        };
+      };
     };
 
     printing.enable = true;
@@ -50,10 +53,6 @@ in {
       alsa.enable = true;
       alsa.support32Bit = true;
       pulse.enable = true;
-
-      # use the example session manager (no others are packaged yet so this is enabled by default,
-      # no need to redefine it in your config for now)
-      #media-session.enable = true;
     };
 
     syncthing = {
@@ -64,10 +63,8 @@ in {
       dataDir = "/home/calebh";
     };
 
-    flatpak.enable = true;
+    journald.extraConfig = "SystemMaxUse=1G";
   };
-
-  virtualisation.docker.enable = true;
 
   nix = {
     settings = {
@@ -210,7 +207,6 @@ in {
   programs.nix-ld.enable = true;
 
   # Allow unfree packages
-  # nixpkgs.config.allowUnfree = true;
 
   nixpkgs.config.allowUnfreePredicate = pkg:
     builtins.elem (pkgs.lib.getName pkg) [

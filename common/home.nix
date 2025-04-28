@@ -14,18 +14,6 @@ in {
   home.homeDirectory = "/home/calebh";
 
   home.file = {
-    #     ".config/nvim/" = {
-    #       source = ./configs/nvim;
-    #       recursive = true;
-    #     };
-    ".config/hypr/" = {
-      source = ../configs/hypr;
-      recursive = true;
-    };
-    ".config/waybar/" = {
-      source = ../configs/waybar;
-      recursive = true;
-    };
     ".config/lock_background.png" = {
       source = ../configs/lock_background;
     };
