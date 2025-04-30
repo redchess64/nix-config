@@ -23,5 +23,15 @@
 
   services.xserver.videoDrivers = ["nvidia"];
 
-  networking.hostName = "desktop";
+  networking = {
+    useDHCP = false;
+    hostName = "desktop";
+    defaultGateway = "192.168.10.1";
+    interfaces.enp5s0.ipv4.addresses = [
+      {
+        address = "192.168.10.80";
+        prefixLength = 24;
+      }
+    ];
+  };
 }
