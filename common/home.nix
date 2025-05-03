@@ -30,7 +30,7 @@ in {
     # Desktop applications
     vesktop
     aseprite
-    prismlauncher
+    # prismlauncher
     nemo
     kdePackages.kate
     element-desktop

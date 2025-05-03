@@ -1,6 +1,6 @@
 {
   pkgs,
-  # pkgs-unstable,
+  pkgs-unstable,
   inputs,
   ...
 }: let
@@ -187,7 +187,8 @@ in {
       "libvirtd"
       "kvm"
     ];
-    packages = with pkgs; [
+    packages = [
+      pkgs-unstable.prismlauncher
     ];
   };
 
