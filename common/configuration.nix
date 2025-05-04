@@ -117,6 +117,7 @@ in {
     # most settings are documented in the appendix
     settings = {
       vim = {
+        package = pkgs-unstable.neovim-unwrapped;
         viAlias = true;
         vimAlias = true;
         lsp.enable = true;
@@ -135,7 +136,6 @@ in {
         };
 
         languages = {
-          enableLSP = true;
           enableFormat = true;
           enableTreesitter = true;
 
