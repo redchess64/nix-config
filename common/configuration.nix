@@ -16,11 +16,14 @@ in {
 
   boot = {
     loader = {
+      timeout = 0;
       efi.canTouchEfiVariables = true;
     };
     kernelPackages = pkgs.linuxPackages;
     kernel.sysctl."kernel.sysrq" = 1;
   };
+
+  fileSystems."/".options = ["noatime"];
 
   services = {
     xserver = {
