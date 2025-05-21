@@ -3,11 +3,7 @@
   pkgs,
   pkgs-unstable,
   ...
-}: let
-  get = pkgs.writeShellScriptBin "get" ''
-    nix-shell -p $1
-  '';
-in {
+}: {
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
   home.username = "calebh";
@@ -40,9 +36,9 @@ in {
     neofetch
     yt-dlp
     fzf
-    get
     qemu
     packwiz
+    just
 
     # Sway utilitys
     wl-clipboard
@@ -100,6 +96,8 @@ in {
   home.shellAliases = {
     l = "ls -lAh";
     "nrs" = "sudo nixos-rebuild switch";
+    get = "nix-shell -p ";
+    rm = "rm -I";
   };
 
   programs.bash = {

@@ -6,6 +6,14 @@
 }: let
   # spicetify-nix = inputs.spicetify-nix;
   spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.stdenv.system};
+
+  writeShellScriptBinAndSymlink = {name?pkg, pkg, text}: pkgs.symlinkJoin {
+    name = name;
+    paths = [
+      (pkgs.writeShellScriptBin name text)
+      pkgs."${pkg}"
+    ];
+  };
 in {
   imports = [
   ];
@@ -33,6 +41,8 @@ in {
         variant = "";
       };
     };
+
+    gpm.enable = true;
 
     greetd = {
       enable = true;
@@ -71,7 +81,7 @@ in {
 
   nix = {
     settings = {
-      system-features = ["kvm" "fuse"];
+      system-features = ["fuse"];
       experimental-features = ["nix-command" "flakes"];
       trusted-users = ["*"];
     };
@@ -109,10 +119,11 @@ in {
     xwayland.enable = true;
   };
 
-  programs.sway = {
-    enable = true;
-    wrapperFeatures.gtk = true;
-  };
+    programs.sway = {
+      enable = true;
+      wrapperFeatures.gtk = true;
+      package = null;
+    };
 
   programs.nvf = {
     enable = true;
@@ -174,12 +185,14 @@ in {
     enabledExtensions = with spicePkgs.extensions; [
       adblockify
     ];
-    theme = spicePkgs.themes.catppuccin;
-    colorScheme = "mocha";
+    # theme = spicePkgs.themes.catppuccin;
+    # colorScheme = "mocha";
   };
 
-  security.rtkit.enable = true;
-
+  security = {
+    rtkit.enable = true;
+    sudo.extraConfig = "Defaults insults";
+  };
   users.users.calebh = {
     isNormalUser = true;
     description = "Caleb Hess";
@@ -188,10 +201,17 @@ in {
       "wheel"
       "qemu-libvirtd"
       "libvirtd"
-      "kvm"
+      "video"
     ];
     packages = [
       pkgs-unstable.prismlauncher
+      (writeShellScriptBinAndSymlink {
+        pkg = "sway";
+        name = "sway";
+        text = ''
+          exec ${pkgs.sway}/bin/sway -c ${../configs/sway/config}
+        '';
+      })
     ];
   };
 

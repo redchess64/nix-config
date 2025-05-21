@@ -7,7 +7,6 @@
       systemd-boot.enable = true;
       systemd-boot.configurationLimit = 10;
     };
-    kernelModules = ["kvm-amd"];
   };
 
   hardware.graphics = {
