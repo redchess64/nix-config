@@ -48,7 +48,7 @@ in {
       enable = true;
       settings = {
         default_session = {
-          command = "${pkgs.greetd.greetd}/bin/agreety --cmd \"sway --unsupported-gpu\"";
+          command = "${pkgs.greetd.greetd}/bin/agreety --cmd \"sway\"";
         };
       };
     };
@@ -209,7 +209,7 @@ in {
         pkg = "sway";
         name = "sway";
         text = ''
-          exec ${pkgs.sway}/bin/sway -c ${../configs/sway/config}
+          exec ${pkgs.sway}/bin/sway --unsupported-gpu -c ${../configs/sway/config}
         '';
       })
     ];

@@ -24,6 +24,7 @@ set $menu wmenu-run
 #
 # Default wallpaper (more resolutions are available in /run/current-system/sw/share/backgrounds/sway/)
 output * bg ~/.config/background.png fill
+output DP-1 mode 1920x1080@165Hz
 #
 # Example configuration:
 #
