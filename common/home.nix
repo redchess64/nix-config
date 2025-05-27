@@ -48,7 +48,7 @@
     playerctl
 
     # Other
-    (nerdfonts.override {fonts = ["DroidSansMono"];})
+    # nerdfonts.droid-sans-mono
     wev
     hyprshot
     lm_sensors
