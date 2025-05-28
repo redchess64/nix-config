@@ -20,6 +20,10 @@
       source = ../configs/sway;
       recursive = true;
     };
+    ".config/niri" = {
+      source = ../configs/niri;
+      recursive = true;
+    };
   };
 
   home.packages = with pkgs; [
@@ -46,6 +50,13 @@
     autotiling
     xdg-desktop-portal-wlr
     playerctl
+
+    # Niri utilitys
+    xwayland-satellite
+    xdg-desktop-portal-gtk
+    xdg-desktop-portal-gnome
+    gnome-keyring
+
 
     # Other
     # nerdfonts.droid-sans-mono

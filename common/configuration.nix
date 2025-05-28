@@ -7,13 +7,18 @@
   # spicetify-nix = inputs.spicetify-nix;
   spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.stdenv.system};
 
-  writeShellScriptBinAndSymlink = {name?pkg, pkg, text}: pkgs.symlinkJoin {
-    name = name;
-    paths = [
-      (pkgs.writeShellScriptBin name text)
-      pkgs."${pkg}"
-    ];
-  };
+  writeShellScriptBinAndSymlink = {
+    name ? pkg,
+    pkg,
+    text,
+  }:
+    pkgs.symlinkJoin {
+      name = name;
+      paths = [
+        (pkgs.writeShellScriptBin name text)
+        pkgs."${pkg}"
+      ];
+    };
 in {
   imports = [
   ];
@@ -48,7 +53,7 @@ in {
       enable = true;
       settings = {
         default_session = {
-          command = "${pkgs.greetd.greetd}/bin/agreety --cmd \"sway\"";
+          command = "${pkgs.greetd.greetd}/bin/agreety --cmd \"sway --unsupported-gpu\"";
         };
       };
     };
@@ -119,11 +124,11 @@ in {
     xwayland.enable = true;
   };
 
-    programs.sway = {
-      enable = true;
-      wrapperFeatures.gtk = true;
-      package = null;
-    };
+  programs.sway = {
+    enable = true;
+    wrapperFeatures.gtk = true;
+  };
+  programs.niri.enable = true;
 
   programs.nvf = {
     enable = true;
@@ -205,13 +210,13 @@ in {
     ];
     packages = [
       pkgs-unstable.prismlauncher
-      (writeShellScriptBinAndSymlink {
-        pkg = "sway";
-        name = "sway";
-        text = ''
-          exec ${pkgs.sway}/bin/sway --unsupported-gpu -c ${../configs/sway/config}
-        '';
-      })
+        # (writeShellScriptBinAndSymlink {
+        #   pkg = "sway";
+        #   name = "sway";
+        #   text = ''
+        #     exec ${pkgs.sway}/bin/sway --unsupported-gpu -c ${../configs/sway/config}
+        #   '';
+        # })
     ];
   };
 
