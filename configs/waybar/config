@@ -1,8 +1,8 @@
 {
     "layer": "top",
-    "modules-left": ["hyprland/workspaces", "hyprland/mode"],
+    "modules-left": ["niri/workspaces"],
     "modules-center": ["tray"],
-    "modules-right": ["battery", "clock"],
+    "modules-right": ["clock"],
     "hyprland/window": {
         "max-length": 50
     },
@@ -11,11 +11,10 @@
         "format-icons": ["", "", "", "", ""]
     },
     "clock": {
-    	"format": "{:%I:%M %p}",
-        "format-alt": "{:%a, %d. %b  %I:%M %p}"
+    	"format": "{:%a, %F %I:%M %p}",
     },
     "tray": {
         "icon-size": 21,
         "spacing": 10
-    }
+   }
 }

@@ -24,11 +24,15 @@
       source = ../configs/niri;
       recursive = true;
     };
+    ".config/waybar" = {
+      source = ../configs/waybar;
+      recursive = true;
+    };
   };
 
   home.packages = with pkgs; [
     # Desktop applications
-    vesktop
+    # vesktop
     aseprite
     # prismlauncher
     nemo
@@ -56,7 +60,7 @@
     xdg-desktop-portal-gtk
     xdg-desktop-portal-gnome
     gnome-keyring
-
+    waybar
 
     # Other
     # nerdfonts.droid-sans-mono

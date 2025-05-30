@@ -210,6 +210,7 @@ in {
     ];
     packages = [
       pkgs-unstable.prismlauncher
+      pkgs-unstable.vesktop
         # (writeShellScriptBinAndSymlink {
         #   pkg = "sway";
         #   name = "sway";
