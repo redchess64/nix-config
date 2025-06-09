@@ -36,8 +36,6 @@ in {
     kernel.sysctl."kernel.sysrq" = 1;
   };
 
-  fileSystems."/".options = ["noatime"];
-
   services = {
     xserver = {
       enable = true;
@@ -82,6 +80,11 @@ in {
     };
 
     journald.extraConfig = "SystemMaxUse=1G";
+
+    openssh = {
+      enable = true;
+      settings.PermitRootLogin = "no";
+    };
   };
 
   nix = {

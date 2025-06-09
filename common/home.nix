@@ -20,6 +20,10 @@
       source = ../configs/sway;
       recursive = true;
     };
+    ".config/swayidle/" = {
+      source = ../configs/swayidle;
+      recursive = true;
+    };
     ".config/niri" = {
       source = ../configs/niri;
       recursive = true;
@@ -47,6 +51,9 @@
     qemu
     packwiz
     just
+    gamescope
+    jq
+    libnotify
 
     # Sway utilitys
     wl-clipboard
@@ -143,10 +150,6 @@
 
   programs.bat.enable = true;
   programs.btop.enable = true;
-
-  programs.direnv = {
-    enable = true;
-  };
 
   catppuccin.enable = true;
 
