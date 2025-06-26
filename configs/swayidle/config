@@ -1,4 +1,4 @@
-timeout 900 'swaylock -f -c ffffff'
+timeout 900 'swaylock -f -c 050505'
 after-resume 'niri msg output DP-1 on'
-before-sleep 'swaylock -f -c ffffff'
+before-sleep 'swaylock -f -c 050505'
 

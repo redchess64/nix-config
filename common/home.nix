@@ -54,6 +54,7 @@
     gamescope
     jq
     libnotify
+    distrobox
 
     # Sway utilitys
     wl-clipboard
@@ -135,6 +136,11 @@
       export CARGO_HOME="$XDG_DATA_HOME/cargo";
       export MOZ_ENABLE_WAYLAND=1;
     '';
+  };
+
+  programs.zoxide = {
+    enable = true;
+    enableBashIntegration = true;
   };
 
   programs.readline = {

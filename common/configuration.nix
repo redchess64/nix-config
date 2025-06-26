@@ -104,6 +104,8 @@ in {
   # Enable networking
   # networking.networkmanager.enable = true;
 
+  fonts.packages = [pkgs.nerd-fonts.droid-sans-mono];
+
   # Set your time zone.
   time.timeZone = "America/New_York";
 
@@ -164,6 +166,7 @@ in {
           rust.enable = true;
           nix.enable = true;
           java.enable = true;
+          clang.enable = true;
         };
 
         theme = {
@@ -183,6 +186,17 @@ in {
           vim-sleuth = {
             package = vim-sleuth;
           };
+
+          render-markdown-nvim = {
+            package = render-markdown-nvim; 
+            setup =''
+              require('render-markdown').setup({
+                pipe_table = {
+                  style = 'normal'
+                },
+              })
+            '';
+          };
         };
       };
     };
@@ -201,6 +215,12 @@ in {
     rtkit.enable = true;
     sudo.extraConfig = "Defaults insults";
   };
+
+  virtualisation.podman = {
+    enable = true;
+    dockerCompat = true;
+  };
+
   users.users.calebh = {
     isNormalUser = true;
     description = "Caleb Hess";
