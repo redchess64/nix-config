@@ -100,6 +100,7 @@
     userEmail = "redchess64@gmail.com";
     extraConfig = {
       core.askPass = "";
+      credential.helper = "store";
     };
   };
 
