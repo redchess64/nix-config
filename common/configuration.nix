@@ -51,7 +51,7 @@ in {
       enable = true;
       settings = {
         default_session = {
-          command = "${pkgs.greetd.greetd}/bin/agreety --cmd \"sway --unsupported-gpu\"";
+          command = "${pkgs.greetd.greetd}/bin/agreety --cmd \"niri-session\"";
         };
       };
     };
