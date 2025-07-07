@@ -136,6 +136,7 @@
       export HISTFILE="$XDG_STATE_HOME/bash/history";
       export CARGO_HOME="$XDG_DATA_HOME/cargo";
       export MOZ_ENABLE_WAYLAND=1;
+      export _JAVA_AWT_WM_NONREPARENTING=1
     '';
   };
 
