@@ -73,10 +73,7 @@
     # Other
     # nerdfonts.droid-sans-mono
     wev
-    hyprshot
     lm_sensors
-    rocmPackages.rocm-smi
-    pmbootstrap
   ];
 
   home.pointerCursor = {
