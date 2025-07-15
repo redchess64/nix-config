@@ -167,6 +167,8 @@ in {
           nix.enable = true;
           java.enable = true;
           clang.enable = true;
+          kotlin.enable = true;
+          csharp.enable = true;
         };
 
         theme = {
