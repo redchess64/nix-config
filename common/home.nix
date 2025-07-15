@@ -36,9 +36,9 @@
 
   home.packages = with pkgs; [
     # Desktop applications
-    # vesktop
+    vesktop
     aseprite
-    # prismlauncher
+    prismlauncher
     nemo
     kdePackages.kate
     element-desktop
@@ -55,6 +55,7 @@
     jq
     libnotify
     distrobox
+    pakku
 
     # Sway utilitys
     wl-clipboard

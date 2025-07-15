@@ -234,9 +234,6 @@ in {
       "video"
     ];
     packages = [
-      pkgs-unstable.prismlauncher
-      pkgs-unstable.vesktop
-      pkgs-unstable.pakku
         # (writeShellScriptBinAndSymlink {
         #   pkg = "sway";
         #   name = "sway";
