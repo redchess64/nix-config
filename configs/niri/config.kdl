@@ -254,7 +254,7 @@ layout {
 // See the binds section below for more spawn examples.
 // spawn-at-startup "alacritty" "-e" "fish"
 spawn-at-startup "xwayland-satellite"
-spawn-at-startup "waybar"
+spawn-at-startup "quickshell"
 spawn-at-startup "swayidle"
 
 // Uncomment this line to ask the clients to omit their client-side decorations if possible.

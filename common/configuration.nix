@@ -234,6 +234,7 @@ in {
       "video"
     ];
     packages = [
+      pkgs-unstable.quickshell
         # (writeShellScriptBinAndSymlink {
         #   pkg = "sway";
         #   name = "sway";

@@ -32,6 +32,10 @@
       source = ../configs/waybar;
       recursive = true;
     };
+    ".config/quickshell" = {
+      source = ../configs/quickshell;
+      recursive = true;
+    };
   };
 
   home.packages = with pkgs; [
@@ -69,7 +73,6 @@
     xdg-desktop-portal-gtk
     xdg-desktop-portal-gnome
     gnome-keyring
-    waybar
 
     # Other
     # nerdfonts.droid-sans-mono
@@ -90,6 +93,12 @@
       package = pkgs.catppuccin-cursors.mochaDark;
       name = "catppuccin-mocha-dark-cursors";
     };
+  };
+
+  qt = {
+    enable = true;
+    style.name = "kvantum";
+    platformTheme.name = "kvantum";
   };
 
   programs.git = {
