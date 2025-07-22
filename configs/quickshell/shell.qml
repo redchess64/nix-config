@@ -26,13 +26,13 @@ Scope {
       implicitHeight: 30
       implicitWidth: 225
 
-      MarginWrapperManager { margin: 5 }
 
-        Text {
-          color: "#cdd6f4"
-          anchors.centerIn: parent
-          text: root.time
-        }
+      Text {
+        color: "#cdd6f4"
+        anchors.centerIn: parent
+        font.pointSize: 12
+        text: root.time
+      }
     }
   }
 
