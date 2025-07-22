@@ -56,7 +56,10 @@ in {
       };
     };
 
-    printing.enable = true;
+    printing = { 
+      enable = true;
+      drivers =  [ pkgs.cups-brother-hll2340dw ];
+    };
 
     avahi = {
       enable = true;
@@ -271,6 +274,7 @@ in {
       "spotify"
       "nvidia-x11"
       "nvidia-settings"
+      "cups-brother-hll2340dw"
     ];
 
   # List packages installed in system profile. To search, run:
