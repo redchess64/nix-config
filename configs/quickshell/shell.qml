@@ -45,15 +45,6 @@ Scope {
       onStreamFinished: root.time = this.text
     }
   }
-  Process {
-    id: overviewProc
-    command: ["niri", "msg", "-j", "overview-state"]
-    running: true
-
-    stdout: StdioCollector {
-      onStreamFinished: root.displayed = JSON.parse(this.text).is_open
-    }
-  }
 
   Timer {
     interval: 1000
@@ -61,10 +52,42 @@ Scope {
     repeat: true
     onTriggered: dateProc.running = true
   }
-  Timer {
-    interval: 10
+
+  //the below is a edited snippet from https://github.com/Ly-sec/Noctalia/ subject to the following copyright notice:
+  //MIT License
+  //
+  //Copyright (c) 2025 Ly-sec
+  //
+  //Permission is hereby granted, free of charge, to any person obtaining a copy
+  //of this software and associated documentation files (the "Software"), to deal
+  //in the Software without restriction, including without limitation the rights
+  //to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  //copies of the Software, and to permit persons to whom the Software is
+  //furnished to do so, subject to the following conditions:
+  //
+  //The above copyright notice and this permission notice shall be included in all
+  //copies or substantial portions of the Software.
+  Process {
+    id: eventStream
     running: true
-    repeat: true
-    onTriggered: overviewProc.running = true
+    command: ["niri", "msg", "--json", "event-stream"]
+
+    stdout: SplitParser {
+      onRead: data => {
+        try {
+          const event = JSON.parse(data.trim());
+
+          if (event.OverviewOpenedOrClosed) {
+            try {
+              root.displayed = event.OverviewOpenedOrClosed.is_open === true;
+            } catch (e) {
+              console.error("Error parsing overview state:", e);
+            }
+          }
+        } catch (e) {
+          console.error("Error parsing event stream:", e, data);
+        }
+      }
+    }
   }
 }
