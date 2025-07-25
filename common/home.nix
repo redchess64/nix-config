@@ -73,6 +73,7 @@
     xdg-desktop-portal-gtk
     xdg-desktop-portal-gnome
     gnome-keyring
+    swaybg
 
     # Other
     # nerdfonts.droid-sans-mono

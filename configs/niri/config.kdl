@@ -106,6 +106,9 @@ output "DP-1" {
 // Find more information on the wiki:
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Layout
 layout {
+
+    background-color "transparent"
+
     // Set gaps around windows in logical pixels.
     gaps 2
 
@@ -256,6 +259,7 @@ layout {
 spawn-at-startup "xwayland-satellite"
 spawn-at-startup "quickshell"
 spawn-at-startup "swayidle"
+spawn-at-startup "swaybg" "-i" "/home/calebh/.config/background.png"
 
 // Uncomment this line to ask the clients to omit their client-side decorations if possible.
 // If the client will specifically ask for CSD, the request will be honored.
@@ -326,6 +330,13 @@ window-rule {
 /-window-rule {
     geometry-corner-radius 12
     clip-to-geometry true
+}
+
+layer-rule {
+    // This is for swaybg; change for other wallpaper tools.
+    // Find the right namespace by running niri msg layers.
+    match namespace="^wallpaper$"
+    place-within-backdrop true
 }
 
 binds {
