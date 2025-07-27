@@ -106,6 +106,7 @@ output "DP-1" {
 // Find more information on the wiki:
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Layout
 layout {
+    empty-workspace-above-first
 
     background-color "transparent"
 
