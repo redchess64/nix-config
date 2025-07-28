@@ -32,7 +32,7 @@ in {
       timeout = 0;
       efi.canTouchEfiVariables = true;
     };
-    kernelPackages = pkgs.linuxPackages;
+    kernelPackages = pkgs.linuxPackages_latest;
     kernel.sysctl."kernel.sysrq" = 1;
   };
 
