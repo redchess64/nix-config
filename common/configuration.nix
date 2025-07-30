@@ -61,6 +61,8 @@ in {
       drivers =  [ pkgs.cups-brother-hll2340dw ];
     };
 
+    speechd.enable = false;
+
     avahi = {
       enable = true;
       nssmdns4 = true;
