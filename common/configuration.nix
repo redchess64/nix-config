@@ -214,8 +214,8 @@ in {
     enabledExtensions = with spicePkgs.extensions; [
       adblockify
     ];
-    # theme = spicePkgs.themes.catppuccin;
-    # colorScheme = "mocha";
+    theme = spicePkgs.themes.catppuccin;
+    colorScheme = "mocha";
   };
 
   security = {
