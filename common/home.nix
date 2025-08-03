@@ -146,6 +146,7 @@
       export MOZ_ENABLE_WAYLAND=1;
       export _JAVA_AWT_WM_NONREPARENTING=1
       export ELECTRON_OZONE_PLATFORM_HINT=auto;
+      export NIXOS_OZONE_WL=1;
     '';
   };
 
