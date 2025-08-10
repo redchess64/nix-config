@@ -36,6 +36,9 @@
       source = ../configs/quickshell;
       recursive = true;
     };
+    ".config/xdg-desktop-portal" = {
+      source = ../configs/xdg-desktop-portal;
+    };
   };
 
   home.packages = with pkgs; [
