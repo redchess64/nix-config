@@ -99,12 +99,6 @@
     };
   };
 
-  qt = {
-    enable = true;
-    style.name = "kvantum";
-    platformTheme.name = "kvantum";
-  };
-
   programs.git = {
     enable = true;
     userName = "Caleb Hess";
