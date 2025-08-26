@@ -73,8 +73,8 @@
 
     # Niri utilitys
     xwayland-satellite
-    xdg-desktop-portal-gtk
-    xdg-desktop-portal-gnome
+    # xdg-desktop-portal-gtk
+    # xdg-desktop-portal-gnome
     gnome-keyring
     swaybg
 
