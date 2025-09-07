@@ -36,6 +36,8 @@ in {
     kernel.sysctl."kernel.sysrq" = 1;
   };
 
+  hardware.xpad-noone.enable = true;
+
   services = {
     xserver = {
       enable = true;
@@ -231,7 +233,10 @@ in {
     dockerCompat = true;
   };
 
-  virtualisation.libvirtd.enable = true;
+  virtualisation.libvirtd = {
+    enable = true;
+    qemu.vhostUserPackages = with pkgs; [ virtiofsd ];
+  };
 
   users.users.calebh = {
     isNormalUser = true;
