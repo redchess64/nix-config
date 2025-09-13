@@ -10,34 +10,9 @@
   home.homeDirectory = "/home/calebh";
 
   home.file = {
-    ".config/lock_background.png" = {
-      source = ../configs/lock_background;
-    };
-    ".config/background.png" = {
-      source = ../configs/background;
-    };
-    ".config/sway/" = {
-      source = ../configs/sway;
+    ".config" = {
+      source = ../configs;
       recursive = true;
-    };
-    ".config/swayidle/" = {
-      source = ../configs/swayidle;
-      recursive = true;
-    };
-    ".config/niri" = {
-      source = ../configs/niri;
-      recursive = true;
-    };
-    ".config/waybar" = {
-      source = ../configs/waybar;
-      recursive = true;
-    };
-    ".config/quickshell" = {
-      source = ../configs/quickshell;
-      recursive = true;
-    };
-    ".config/xdg-desktop-portal" = {
-      source = ../configs/xdg-desktop-portal;
     };
   };
 
@@ -165,8 +140,6 @@
 
   programs.bat.enable = true;
   programs.btop.enable = true;
-
-  catppuccin.enable = true;
 
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage
