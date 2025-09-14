@@ -4,7 +4,6 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-25.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
-    catppuccin.url = "github:catppuccin/nix";
 
     nvf = {
       url = "github:notashelf/nvf";
@@ -25,7 +24,6 @@
   outputs = inputs @ {
     nixpkgs,
     nixpkgs-unstable,
-    catppuccin,
     home-manager,
     nvf,
     spicetify-nix,
