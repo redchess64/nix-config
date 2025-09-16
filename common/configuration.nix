@@ -58,9 +58,9 @@ in {
       };
     };
 
-    printing = { 
+    printing = {
       enable = true;
-      drivers =  [ pkgs.cups-brother-hll2340dw ];
+      drivers = [pkgs.cups-brother-hll2340dw];
     };
 
     speechd.enable = false;
@@ -112,7 +112,6 @@ in {
   # networking.networkmanager.enable = true;
 
   fonts.packages = [pkgs.nerd-fonts.droid-sans-mono];
-
 
   # Set your time zone.
   time.timeZone = "America/New_York";
@@ -198,8 +197,8 @@ in {
           };
 
           render-markdown-nvim = {
-            package = render-markdown-nvim; 
-            setup =''
+            package = render-markdown-nvim;
+            setup = ''
               require('render-markdown').setup({
                 pipe_table = {
                   style = 'normal'
@@ -235,7 +234,7 @@ in {
 
   virtualisation.libvirtd = {
     enable = true;
-    qemu.vhostUserPackages = with pkgs; [ virtiofsd ];
+    qemu.vhostUserPackages = with pkgs; [virtiofsd];
   };
 
   users.users.calebh = {
@@ -250,13 +249,13 @@ in {
     ];
     packages = [
       pkgs-unstable.quickshell
-        # (writeShellScriptBinAndSymlink {
-        #   pkg = "sway";
-        #   name = "sway";
-        #   text = ''
-        #     exec ${pkgs.sway}/bin/sway --unsupported-gpu -c ${../configs/sway/config}
-        #   '';
-        # })
+      # (writeShellScriptBinAndSymlink {
+      #   pkg = "sway";
+      #   name = "sway";
+      #   text = ''
+      #     exec ${pkgs.sway}/bin/sway --unsupported-gpu -c ${../configs/sway/config}
+      #   '';
+      # })
     ];
   };
 
