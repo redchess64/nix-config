@@ -94,6 +94,16 @@ in {
     };
   };
 
+  xdg.portal = {
+    enable = true;
+    extraPortals = [
+      pkgs.xdg-desktop-portal-gnome
+    ];
+    configPackages = [
+      pkgs.xdg-desktop-portal-gnome
+    ];
+  };
+
   nix = {
     settings = {
       system-features = ["fuse"];
@@ -131,15 +141,6 @@ in {
     LC_TIME = "en_US.UTF-8";
   };
 
-  programs.hyprland = {
-    enable = true;
-    xwayland.enable = true;
-  };
-
-  programs.sway = {
-    enable = true;
-    wrapperFeatures.gtk = true;
-  };
   programs.niri.enable = true;
 
   programs.nvf = {

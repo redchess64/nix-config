@@ -22,6 +22,7 @@
     aseprite
     prismlauncher
     nemo
+    nautilus
     kdePackages.kate
     element-desktop
     drawing
@@ -43,15 +44,15 @@
     wl-clipboard
     mako
     autotiling
-    xdg-desktop-portal-wlr
     playerctl
 
     # Niri utilitys
     xwayland-satellite
-    # xdg-desktop-portal-gtk
-    # xdg-desktop-portal-gnome
     gnome-keyring
     swaybg
+    swayidle
+    swaylock
+    wmenu
 
     # Other
     # nerdfonts.droid-sans-mono
