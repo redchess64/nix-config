@@ -93,11 +93,6 @@
   #     vimAlias = true;
   #   };
 
-  programs.tmux = {
-    enable = true;
-    baseIndex = 1;
-  };
-
   home.shellAliases = {
     l = "ls -lAh";
     "nrs" = "sudo nixos-rebuild switch";
@@ -120,22 +115,7 @@
       export _JAVA_AWT_WM_NONREPARENTING=1
       export ELECTRON_OZONE_PLATFORM_HINT=auto;
       export NIXOS_OZONE_WL=1;
-    '';
-  };
-
-  programs.zoxide = {
-    enable = true;
-    enableBashIntegration = true;
-  };
-
-  programs.readline = {
-    enable = true;
-    extraConfig = ''
-      set editing-mode vi
-      set show-mode-in-prompt on
-      set vi-ins-mode-string (ins)\1\e[5 q\2
-      set vi-cmd-mode-string (cmd)\1\e[1 q\2
-      set completion-ignore-case On
+      export INPUTRC="$XDG_CONFIG_HOME"/readline/inputrc;
     '';
   };
 
