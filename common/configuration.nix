@@ -36,8 +36,6 @@ in {
     kernel.sysctl."kernel.sysrq" = 1;
   };
 
-  hardware.xpad-noone.enable = true;
-
   services = {
     xserver = {
       enable = true;
