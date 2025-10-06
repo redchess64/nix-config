@@ -39,6 +39,8 @@
     libnotify
     distrobox
     pakku
+    bat
+    btop
 
     # Sway utilitys
     wl-clipboard
@@ -58,32 +60,33 @@
     # nerdfonts.droid-sans-mono
     wev
     lm_sensors
+    catppuccin-cursors.mochaDark
   ];
 
-  home.pointerCursor = {
-    package = pkgs.catppuccin-cursors.mochaDark;
-    name = "catppuccin-mocha-dark-cursors";
-    size = 32;
-  };
+  # home.pointerCursor = {
+  #   package = pkgs.catppuccin-cursors.mochaDark;
+  #   name = "catppuccin-mocha-dark-cursors";
+  #   size = 32;
+  # };
 
-  gtk = {
-    enable = true;
-    cursorTheme = {
-      size = 24;
-      package = pkgs.catppuccin-cursors.mochaDark;
-      name = "catppuccin-mocha-dark-cursors";
-    };
-  };
+  # gtk = {
+  #   enable = true;
+  #   cursorTheme = {
+  #     size = 24;
+  #     package = pkgs.catppuccin-cursors.mochaDark;
+  #     name = "catppuccin-mocha-dark-cursors";
+  #   };
+  # };
 
-  programs.git = {
-    enable = true;
-    userName = "Caleb Hess";
-    userEmail = "redchess64@gmail.com";
-    extraConfig = {
-      core.askPass = "";
-      credential.helper = "store";
-    };
-  };
+  # programs.git = {
+  #   enable = true;
+  #   userName = "Caleb Hess";
+  #   userEmail = "redchess64@gmail.com";
+  #   extraConfig = {
+  #     core.askPass = "";
+  #     credential.helper = "store";
+  #   };
+  # };
 
   programs.alacritty.enable = true;
 
@@ -118,9 +121,6 @@
       export INPUTRC="$XDG_CONFIG_HOME"/readline/inputrc;
     '';
   };
-
-  programs.bat.enable = true;
-  programs.btop.enable = true;
 
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage

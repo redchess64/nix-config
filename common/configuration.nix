@@ -93,14 +93,20 @@ in {
     hardware.openrgb.enable = true;
   };
 
-  xdg.portal = {
-    enable = true;
-    extraPortals = [
-      pkgs.xdg-desktop-portal-gnome
-    ];
-    configPackages = [
-      pkgs.xdg-desktop-portal-gnome
-    ];
+  xdg = { 
+    portal = {
+      enable = true;
+      extraPortals = [
+        pkgs.xdg-desktop-portal-gnome
+      ];
+      configPackages = [
+        pkgs.xdg-desktop-portal-gnome
+      ];
+    };
+    icons = {
+      enable = true;
+      fallbackCursorThemes = ["catppuccin-mocha-dark-cursors"];
+    };
   };
 
   nix = {
@@ -297,6 +303,7 @@ in {
     unzip
     file
     moreutils
+    catppuccin-cursors.mochaDark
   ];
 
   # Open ports in the firewall.
