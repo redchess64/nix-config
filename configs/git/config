@@ -1,0 +1,9 @@
+[core]
+	askPass = ""
+
+[credential]
+	helper = "store"
+
+[user]
+	email = "redchess64@gmail.com"
+	name = "Caleb Hess"
