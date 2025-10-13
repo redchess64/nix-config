@@ -298,7 +298,6 @@ in {
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     wget
-    home-manager
     git
     unzip
     file

@@ -49,4 +49,11 @@
     lm_sensors
     catppuccin-cursors.mochaDark
   ];
+  nix-stow = {
+    enable = true;
+    users.calebh = {
+      enable = true;
+      package = ../configs;
+    };
+  };
 }
