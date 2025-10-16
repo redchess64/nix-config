@@ -21,9 +21,6 @@
   outputs = inputs @ {
     nixpkgs,
     nixpkgs-unstable,
-    nvf,
-    spicetify-nix,
-    nix-stow,
     ...
   }: {
     formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
