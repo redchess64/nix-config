@@ -28,6 +28,7 @@
     pakku
     bat
     btop
+    ripgrep
 
     # Sway utilitys
     wl-clipboard
