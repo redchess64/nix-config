@@ -94,7 +94,7 @@ in {
     hardware.openrgb.enable = true;
   };
 
-  xdg = { 
+  xdg = {
     portal = {
       enable = true;
       extraPortals = [
