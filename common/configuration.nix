@@ -91,7 +91,6 @@ in {
       enable = true;
       settings.PermitRootLogin = "no";
     };
-    hardware.openrgb.enable = true;
   };
 
   xdg = {
