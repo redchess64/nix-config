@@ -7,14 +7,13 @@
 
     nix-stow.url = "github:redchess64/nix-stow";
 
-    nvf = {
-      url = "github:notashelf/nvf?ref=v0.8";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    mnw = {
+      url = "github:Gerg-L/mnw";
     };
   };
 

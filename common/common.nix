@@ -1,1 +1,6 @@
-{...}: {imports = [./modules.nix ./configuration.nix ./user.nix];}
+{...}: {imports = [
+  ./modules.nix
+  ./configuration.nix
+  ./user.nix
+  ./nvim
+];}
