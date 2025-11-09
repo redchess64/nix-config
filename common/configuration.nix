@@ -195,8 +195,6 @@ in {
           completion.enable = true;
         };
 
-        telescope.enable = true;
-
         extraPlugins = with pkgs.vimPlugins; {
           vim-sleuth = {
             package = vim-sleuth;
