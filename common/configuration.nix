@@ -23,9 +23,10 @@ in {
   imports = [
   ];
 
-  environment.etc = {
+  environment.etc = let sources = import ../npins; in{
     "resolv.conf".text = "nameserver 1.1.1.1\nnameserver 8.8.8.8";
-    "nixpkgs".source = (import ../npins).nixpkgs;
+    "nixpkgs".source = sources.nixpkgs;
+    "nixpkgs-unstable".source = sources.nixpkgs-unstable;
   };
 
   boot = {
@@ -123,7 +124,7 @@ in {
       options = "--delete-older-than 1w";
     };
     channel.enable = false;
-    nixPath = ["nixpkgs=/etc/nixpkgs"];
+    nixPath = ["nixpkgs=/etc/nixpkgs" "nixpkgs-unstable=/etc/nixpkgs-unstable"];
   };
 
   # Enable networking
