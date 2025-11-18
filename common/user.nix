@@ -26,6 +26,7 @@
     bat
     btop
     ripgrep
+    nh
 
     # Sway utilitys
     wl-clipboard
