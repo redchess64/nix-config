@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{pkgs, inputs, ...}: {
   users.users.calebh.packages = with pkgs; [
     # Desktop applications
     vesktop
@@ -40,6 +40,7 @@
     swayidle
     swaylock
     wmenu
+    inputs.pkgs-unstable.quickshell
 
     # Other
     # nerdfonts.droid-sans-mono

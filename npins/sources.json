@@ -1,0 +1,63 @@
+{
+  "pins": {
+    "mnw": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "Gerg-L",
+        "repo": "mnw"
+      },
+      "branch": "master",
+      "submodules": false,
+      "revision": "5b634fd1b77b0e14b1034a4cf9bfc0bef3a22055",
+      "url": "https://github.com/Gerg-L/mnw/archive/5b634fd1b77b0e14b1034a4cf9bfc0bef3a22055.tar.gz",
+      "hash": "03r239fwfxspljgpaaw8pqynsgd03kqadwq78zilxbkxhig33and"
+    },
+    "nix-stow": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "redchess64",
+        "repo": "nix-stow"
+      },
+      "branch": "master",
+      "submodules": false,
+      "revision": "e77c8a9ea168ca57d159e6ad6dda85c62640cdd0",
+      "url": "https://github.com/redchess64/nix-stow/archive/e77c8a9ea168ca57d159e6ad6dda85c62640cdd0.tar.gz",
+      "hash": "0n955ynrc8zgjih4lj4s83mr1gw7fcg3dgznl9fd1phx68ja5k0j"
+    },
+    "nixpkgs": {
+      "type": "Channel",
+      "name": "nixos-25.05",
+      "url": "https://releases.nixos.org/nixos/25.05/nixos-25.05.812778.3acb677ea67d/nixexprs.tar.xz",
+      "hash": "17w9hlr0nhw4pkdfqzlmk9dlkld6niwrxwhbnzjdhn7kf2dgbm7g"
+    },
+    "nixpkgs-unstable": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "nixos",
+        "repo": "nixpkgs"
+      },
+      "branch": "nixos-unstable",
+      "submodules": false,
+      "revision": "50a96edd8d0db6cc8db57dab6bb6d6ee1f3dc49a",
+      "url": "https://github.com/nixos/nixpkgs/archive/50a96edd8d0db6cc8db57dab6bb6d6ee1f3dc49a.tar.gz",
+      "hash": "0jg5zksa5rrfzaf0xp1ilhd55k0v0z5kkbxq5amml6mqy8ac7d33"
+    },
+    "spicetify-nix": {
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "Gerg-L",
+        "repo": "spicetify-nix"
+      },
+      "branch": "master",
+      "submodules": false,
+      "revision": "cf33e39bd1a21993a28ffee8be433e212ecf346a",
+      "url": "https://github.com/Gerg-L/spicetify-nix/archive/cf33e39bd1a21993a28ffee8be433e212ecf346a.tar.gz",
+      "hash": "06nmzzhmm1g995gvgv6wd7nm000px1kgj0whc41bw6m943i02b0b"
+    }
+  },
+  "version": 5
+}

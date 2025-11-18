@@ -5,7 +5,7 @@
   ...
 }: let
   # spicetify-nix = inputs.spicetify-nix;
-  spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.stdenv.system};
+  spicePkgs = inputs.spicetify-nix.packages;
 
   writeShellScriptBinAndSymlink = {
     name ? pkg,
@@ -25,6 +25,7 @@ in {
 
   environment.etc = {
     "resolv.conf".text = "nameserver 1.1.1.1\nnameserver 8.8.8.8";
+    "nixpkgs".source = (import ../npins).nixpkgs;
   };
 
   boot = {
@@ -121,6 +122,8 @@ in {
       dates = "weekly";
       options = "--delete-older-than 1w";
     };
+    channel.enable = false;
+    nixPath = ["nixpkgs=/etc/nixpkgs"];
   };
 
   # Enable networking
@@ -185,7 +188,6 @@ in {
       "video"
     ];
     packages = [
-      pkgs-unstable.quickshell
       # (writeShellScriptBinAndSymlink {
       #   pkg = "sway";
       #   name = "sway";
@@ -210,20 +212,6 @@ in {
   };
 
   programs.nix-ld.enable = true;
-
-  # Allow unfree packages
-
-  nixpkgs.config.allowUnfreePredicate = pkg:
-    builtins.elem (pkgs.lib.getName pkg) [
-      "vesktop"
-      "steam"
-      "steam-unwrapped"
-      "aseprite"
-      "spotify"
-      "nvidia-x11"
-      "nvidia-settings"
-      "cups-brother-hll2340dw"
-    ];
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
