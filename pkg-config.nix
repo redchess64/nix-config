@@ -1,11 +1,12 @@
 let
-  getName =
-    let
-      parse = drv: (builtins.parseDrvName drv).name;
-    in
-    x: if builtins.isString x then parse x else x.pname or (parse x.name);
-in
-{
+  getName = let
+    parse = drv: (builtins.parseDrvName drv).name;
+  in
+    x:
+      if builtins.isString x
+      then parse x
+      else x.pname or (parse x.name);
+in {
   config.allowUnfreePredicate = pkg:
     builtins.elem (getName pkg) [
       "vesktop"

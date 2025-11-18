@@ -20,7 +20,7 @@ input {
 
             // For example:
             // layout "us,ru"
-            options "caps:hyper"
+            options "caps:menu"
         }
     }
 

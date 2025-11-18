@@ -1,4 +1,8 @@
-{pkgs, inputs, ...}: {
+{
+  pkgs,
+  inputs,
+  ...
+}: {
   users.users.calebh.packages = with pkgs; [
     # Desktop applications
     vesktop

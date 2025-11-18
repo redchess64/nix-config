@@ -7,4 +7,5 @@ let
     spicetify-nix = import sources.spicetify-nix {inherit (inputs) pkgs;};
     nix-stow = import sources.nix-stow;
   };
-in inputs
+in
+  inputs
