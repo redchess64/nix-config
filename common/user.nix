@@ -14,6 +14,7 @@
     element-desktop
     drawing
     alacritty
+    inputs.pkgs-unstable.olympus
 
     # CLI applications
     neofetch
