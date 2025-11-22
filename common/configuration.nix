@@ -39,6 +39,7 @@ in {
     kernelPackages = pkgs.linuxPackages_latest;
     kernel.sysctl."kernel.sysrq" = 1;
     initrd.systemd.enable = true;
+    tmp.useTmpfs = true;
   };
 
   services = {
@@ -122,8 +123,8 @@ in {
 
     gc = {
       automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 1w";
+      dates = "daily";
+      options = "--delete-older-than 7d";
     };
     channel.enable = false;
     nixPath = ["nixpkgs=/etc/nixpkgs" "nixpkgs-unstable=/etc/nixpkgs-unstable"];
