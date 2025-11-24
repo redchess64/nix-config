@@ -226,6 +226,7 @@ in {
     file
     moreutils
     catppuccin-cursors.mochaDark
+    npins
   ];
 
   # Open ports in the firewall.
