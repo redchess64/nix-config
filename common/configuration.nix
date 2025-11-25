@@ -4,21 +4,7 @@
   inputs,
   ...
 }: let
-  # spicetify-nix = inputs.spicetify-nix;
   spicePkgs = inputs.spicetify-nix.packages;
-
-  writeShellScriptBinAndSymlink = {
-    name ? pkg,
-    pkg,
-    text,
-  }:
-    pkgs.symlinkJoin {
-      name = name;
-      paths = [
-        (pkgs.writeShellScriptBin name text)
-        pkgs."${pkg}"
-      ];
-    };
 in {
   imports = [
   ];
