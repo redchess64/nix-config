@@ -11,7 +11,10 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 export ELECTRON_OZONE_PLATFORM_HINT=auto;
 export NIXOS_OZONE_WL=1;
 export INPUTRC="$XDG_CONFIG_HOME"/readline/inputrc;
+export PROMPT_COMMAND='history -a;history -c;history -r'
+export HISTSIZE='100000'
+export HISTFILESIZE='100000'
 
 if [ -f .bashrc ]; then
-	source .bashrc
+	source ~/.bashrc
 fi
