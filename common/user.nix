@@ -33,12 +33,6 @@
     ripgrep
     nh
 
-    # Sway utilitys
-    wl-clipboard
-    mako
-    autotiling
-    playerctl
-
     # Niri utilitys
     xwayland-satellite
     gnome-keyring
@@ -47,6 +41,8 @@
     swaylock
     wmenu
     inputs.pkgs-unstable.quickshell
+    wl-clipboard
+    mako
 
     # Other
     # nerdfonts.droid-sans-mono
