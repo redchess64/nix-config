@@ -11,3 +11,7 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 export ELECTRON_OZONE_PLATFORM_HINT=auto;
 export NIXOS_OZONE_WL=1;
 export INPUTRC="$XDG_CONFIG_HOME"/readline/inputrc;
+
+if [ -f .bashrc ]; then
+	source .bashrc
+fi
