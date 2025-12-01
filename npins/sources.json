@@ -9,9 +9,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "5b634fd1b77b0e14b1034a4cf9bfc0bef3a22055",
-      "url": "https://github.com/Gerg-L/mnw/archive/5b634fd1b77b0e14b1034a4cf9bfc0bef3a22055.tar.gz",
-      "hash": "03r239fwfxspljgpaaw8pqynsgd03kqadwq78zilxbkxhig33and"
+      "revision": "68a22f62ca7623fcb700d4ebf225bd91125c773e",
+      "url": "https://github.com/Gerg-L/mnw/archive/68a22f62ca7623fcb700d4ebf225bd91125c773e.tar.gz",
+      "hash": "0lcsrd8x3585xsl94mnz3k6s2vhsbwb4fynwawlh6ajp2qh3j3l9"
     },
     "nix-stow": {
       "type": "Git",
@@ -22,15 +22,15 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "563ada2853d8efedbf29e716776058a6ead1ffa6",
-      "url": "https://github.com/redchess64/nix-stow/archive/563ada2853d8efedbf29e716776058a6ead1ffa6.tar.gz",
-      "hash": "0f1fdm4zsbxlxgwb2q1lkkzimw4mndvah68ivq25qywdz251g8lz"
+      "revision": "d9b360635334fa0f2ba87d63749c3cbc1ca8d046",
+      "url": "https://github.com/redchess64/nix-stow/archive/d9b360635334fa0f2ba87d63749c3cbc1ca8d046.tar.gz",
+      "hash": "033ssmmrjb1gq9qalw577kf7n344bazx01z4jmsywn2njkkwf6bg"
     },
     "nixpkgs": {
       "type": "Channel",
-      "name": "nixos-25.05",
-      "url": "https://releases.nixos.org/nixos/25.05/nixos-25.05.812955.c58bc7f54593/nixexprs.tar.xz",
-      "hash": "0fch5cr2x3d78lpb3gfpz86gn4jb1wl4lv0q1kbda0yfk9hg6z4c"
+      "name": "nixos-25.11",
+      "url": "https://releases.nixos.org/nixos/25.11/nixos-25.11.650.8bb5646e0bed/nixexprs.tar.xz",
+      "hash": "0gz9gdfqicq0hzs329xvck3p9k7nwl5warzcr023z4n6442h8f8v"
     },
     "nixpkgs-unstable": {
       "type": "Git",
@@ -41,9 +41,9 @@
       },
       "branch": "nixos-unstable",
       "submodules": false,
-      "revision": "050e09e091117c3d7328c7b2b7b577492c43c134",
-      "url": "https://github.com/nixos/nixpkgs/archive/050e09e091117c3d7328c7b2b7b577492c43c134.tar.gz",
-      "hash": "0lxsf4959s3c6azan30wzgbhnm3nnkh4mi13p2hw1r03a8cmwg0z"
+      "revision": "2d293cbfa5a793b4c50d17c05ef9e385b90edf6c",
+      "url": "https://github.com/nixos/nixpkgs/archive/2d293cbfa5a793b4c50d17c05ef9e385b90edf6c.tar.gz",
+      "hash": "03n6v687rkbjriah1bn9m8ysc1bq5b0y82lmy01352j7i17yx7d6"
     },
     "spicetify-nix": {
       "type": "Git",
