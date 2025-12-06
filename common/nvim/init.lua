@@ -1,6 +1,7 @@
 vim.o.encoding = "utf-8"
 vim.o.relativenumber = true
 vim.o.wrap = true
+vim.o.fixeol = false
 
 vim.o.expandtab = false
 vim.o.shiftwidth = 4
