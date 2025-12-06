@@ -14,7 +14,7 @@
     element-desktop
     drawing
     alacritty
-    inputs.pkgs-unstable.olympus
+    olympus
 
     # CLI applications
     neofetch
@@ -40,7 +40,7 @@
     swayidle
     swaylock
     wmenu
-    inputs.pkgs-unstable.quickshell
+    quickshell
     wl-clipboard
     mako
 
