@@ -358,7 +358,7 @@ binds {
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+T { spawn "alacritty"; }
     Mod+D { spawn "wmenu-run"; }
-    Super+Ctrl+L { spawn "swaylock"; }
+    Super+Ctrl+L { spawn "swaylock" "-f" "-c" "050505"; }
 
     // You can also use a shell. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument in the end.
