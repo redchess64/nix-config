@@ -3,7 +3,10 @@ let
   pkgs = inputs.pkgs;
   lib = pkgs.lib;
   eval-config = import ((import ./npins).nixpkgs + "/nixos/lib/eval-config.nix");
-  ls = dir: (lib.mapAttrsToList (name: _: dir + "/${name}") (builtins.readDir dir) );
+  ls = dirs: lib.flatten (
+    map
+      ( dir: (lib.mapAttrsToList (name: _: dir + "/${name}") (builtins.readDir dir)))
+    dirs);
   mkHost = {modules, ...}:
     eval-config {
       system = null;
@@ -14,8 +17,7 @@ let
             nixpkgs.localSystem = pkgs.stdenv.hostPlatform;
           }
         ]
-        ++ modules
-        ++ ls ./common;
+        ++ ls modules;
       specialArgs = {
         inherit inputs;
       };
@@ -23,7 +25,8 @@ let
 in {
   desktop = mkHost {
     modules = [
-      ./machines/desktop/hardware.nix
+      ./common
+      ./machines/desktop
     ];
   };
 }

@@ -1,7 +1,4 @@
 {config, ...}: {
-  imports = [
-    ./generated-hardware.nix
-  ];
   boot = {
     loader = {
       systemd-boot.enable = true;

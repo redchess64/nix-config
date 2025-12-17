@@ -18,4 +18,5 @@ in {
       "nvidia-settings"
       "cups-brother-hll2340dw"
     ];
+  system = "x86_64-linux";
 }
