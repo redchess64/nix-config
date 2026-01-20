@@ -15,6 +15,8 @@
     drawing
     alacritty
     olympus
+    jetbrains.pycharm
+      python3 # TODO fix this
 
     # CLI applications
     neofetch
@@ -29,7 +31,7 @@
     distrobox
     pakku
     bat
-    btop
+    btop-cuda
     ripgrep
     nh
 
