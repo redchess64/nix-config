@@ -49,7 +49,7 @@ in {
 
     printing = {
       enable = true;
-      drivers = [pkgs.cups-brother-hll2340dw];
+      # drivers = [pkgs.cups-brother-hll2340dw];
     };
 
     speechd.enable = false;
