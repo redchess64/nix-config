@@ -150,6 +150,7 @@ in {
   };
 
   programs.virt-manager.enable = true;
+  virtualisation.spiceUSBRedirection.enable = true;
 
   security = {
     rtkit.enable = true;
@@ -174,6 +175,8 @@ in {
       "wheel"
       "qemu-libvirtd"
       "libvirtd"
+      "libvirt"
+      "kvm"
       "video"
     ];
     packages = [
@@ -218,7 +221,7 @@ in {
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
-  networking.firewall.enable = true;
+  networking.firewall.enable = false;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
