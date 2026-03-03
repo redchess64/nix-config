@@ -16,7 +16,10 @@
     alacritty
     olympus
     jetbrains.pycharm
-      python3 # TODO fix this
+    # TODO fix this
+    (pkgs.python3.withPackages (python-pkgs: with python-pkgs; [
+     matplotlib
+    ]))
 
     # CLI applications
     neofetch
