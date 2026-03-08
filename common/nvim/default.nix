@@ -20,6 +20,7 @@
       rust-analyzer
       clang-tools
       bash-language-server
+      omnisharp-roslyn
     ];
 
     initLua = builtins.readFile ./init.lua;
