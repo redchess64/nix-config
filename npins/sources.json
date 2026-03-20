@@ -29,8 +29,8 @@
     "nixpkgs": {
       "type": "Channel",
       "name": "nixos-25.11",
-      "url": "https://releases.nixos.org/nixos/25.11/nixos-25.11.7198.71caefce12ba/nixexprs.tar.xz",
-      "hash": "0wx8xabnfbqimamljcyfn7jdvb2z27j7zm2rrrvli5mpqkhi9adq"
+      "url": "https://releases.nixos.org/nixos/25.11/nixos-25.11.7702.48652e9d5aea/nixexprs.tar.xz",
+      "hash": "1rvdpi2mxsmpxh8l4y9q750h5rkqn6nwlclnmbjwgn731yhabc8y"
     },
     "nixpkgs-unstable": {
       "type": "Git",
@@ -41,9 +41,9 @@
       },
       "branch": "nixos-unstable",
       "submodules": false,
-      "revision": "aca4d95fce4914b3892661bcb80b8087293536c6",
-      "url": "https://github.com/nixos/nixpkgs/archive/aca4d95fce4914b3892661bcb80b8087293536c6.tar.gz",
-      "hash": "0avw8p8n863vk446kaglskyarzzrymp8iszba883lz2a2cgz2mhk"
+      "revision": "5b2c2d84341b2afb5647081c1386a80d7a8d8605",
+      "url": "https://github.com/nixos/nixpkgs/archive/5b2c2d84341b2afb5647081c1386a80d7a8d8605.tar.gz",
+      "hash": "1vsjcch8mvxnrzipngb4wwhcc0mqngavhcslw9p9xvjjp3vyr2l9"
     },
     "spicetify-nix": {
       "type": "Git",
@@ -54,9 +54,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "dcb252ceaa6260afd1761c6a6f183e522220e13d",
-      "url": "https://github.com/Gerg-L/spicetify-nix/archive/dcb252ceaa6260afd1761c6a6f183e522220e13d.tar.gz",
-      "hash": "0z0pgwrnk0168dmlz15494gsdgfrz6iy9w24h1a48m9s7f2xnhfw"
+      "revision": "6f06ff05cd536b790b7662550a10b61a1ac4619e",
+      "url": "https://github.com/Gerg-L/spicetify-nix/archive/6f06ff05cd536b790b7662550a10b61a1ac4619e.tar.gz",
+      "hash": "13bp4aw7c9hbcaqz0ip8awhai7rz5qf6kcqw7fvfddr15r1h5gq6"
     }
   },
   "version": 5
