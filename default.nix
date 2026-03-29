@@ -11,7 +11,6 @@ let
     );
   mkHost = {modules, ...}:
     eval-config {
-      system = null;
       modules =
         [
           {
