@@ -22,9 +22,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "f3a6aefc881f26ddb825922fededdd006a8adee3",
-      "url": "https://github.com/redchess64/nix-stow/archive/f3a6aefc881f26ddb825922fededdd006a8adee3.tar.gz",
-      "hash": "0ayaw9nj94vy72qr39vbg2kxg08w68chsdnh6ggd7dxd8sp31mm7"
+      "revision": "3846122974b8e341b3edd6d3c05c400686edd053",
+      "url": "https://github.com/redchess64/nix-stow/archive/3846122974b8e341b3edd6d3c05c400686edd053.tar.gz",
+      "hash": "0vc1nbb2f5yw7x4h5dm7qg027jz7vx2hgzfwvzqkvgwgc273c595"
     },
     "nixpkgs": {
       "type": "Channel",
