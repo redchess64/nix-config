@@ -113,6 +113,7 @@ in {
     };
     channel.enable = false;
     nixPath = ["nixpkgs=/etc/nixpkgs" "nixpkgs-unstable=/etc/nixpkgs-unstable"];
+    package = pkgs.lixPackageSets.stable.lix;
   };
 
   # Enable networking
