@@ -27,10 +27,17 @@
       "hash": "0vc1nbb2f5yw7x4h5dm7qg027jz7vx2hgzfwvzqkvgwgc273c595"
     },
     "nixpkgs": {
-      "type": "Channel",
-      "name": "nixos-25.11",
-      "url": "https://releases.nixos.org/nixos/25.11/nixos-25.11.10134.26ef669cffa9/nixexprs.tar.xz",
-      "hash": "1pgg7ci2grn18v296hbrh173l2n4mag1299mcwbyg8r7jbjghdc4"
+      "type": "Git",
+      "repository": {
+        "type": "GitHub",
+        "owner": "nixos",
+        "repo": "nixpkgs"
+      },
+      "branch": "nixos-25.11",
+      "submodules": false,
+      "revision": "26ef669cffa904b6f6832ab57b77892a37c1a671",
+      "url": "https://github.com/nixos/nixpkgs/archive/26ef669cffa904b6f6832ab57b77892a37c1a671.tar.gz",
+      "hash": "06rhb49ksbc07lp31xgf8qdlph29knrql30x58s4x3fflcw8zkg5"
     },
     "nixpkgs-unstable": {
       "type": "Git",
