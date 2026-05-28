@@ -153,8 +153,6 @@ in {
   programs.virt-manager.enable = true;
   virtualisation.spiceUSBRedirection.enable = true;
 
-  programs.obs-studio.enable = true;
-
   security = {
     rtkit.enable = true;
     sudo.extraConfig = "Defaults insults";
