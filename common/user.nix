@@ -20,6 +20,7 @@
     (pkgs.python3.withPackages (python-pkgs: with python-pkgs; [
      matplotlib
     ]))
+    kdePackages.kdenlive
 
     # CLI applications
     neofetch
