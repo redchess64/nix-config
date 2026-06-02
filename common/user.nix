@@ -6,7 +6,6 @@
   users.users.calebh.packages = with pkgs; [
     # Desktop applications
     vesktop
-    aseprite
     prismlauncher
     nemo
     nautilus
