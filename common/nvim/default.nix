@@ -7,7 +7,6 @@
         mini-basics
         mini-completion
         nvim-lspconfig
-        nvim-treesitter.withAllGrammars
         vim-sleuth
         render-markdown-nvim
       ];

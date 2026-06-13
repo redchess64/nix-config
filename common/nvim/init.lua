@@ -21,17 +21,6 @@ vim.cmd.colorscheme "catppuccin"
 
 require('mini.basics').setup()
 require('mini.completion').setup()
-require("nvim-treesitter.configs").setup({
-  modules = {},
-  sync_install = false,
-  ignore_install = {},
-  ensure_installed = {},
-  auto_install = false,
-  highlight = {
-    enable = true,
-    additional_vim_regex_highlighting = false,
-  },
-})
 require('render-markdown').setup({
   pipe_table = {
     style = 'normal'

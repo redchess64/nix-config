@@ -12,7 +12,6 @@ in {
   environment.etc = let
     sources = import ../npins;
   in {
-    "resolv.conf".text = "nameserver 1.1.1.1\nnameserver 8.8.8.8";
     "nixpkgs".source = sources.nixpkgs;
     "nixpkgs-unstable".source = sources.nixpkgs-unstable;
   };
@@ -118,6 +117,7 @@ in {
 
   # Enable networking
   # networking.networkmanager.enable = true;
+  networking.nameservers = [ "1.1.1.1" "8.8.8.8"];
 
   fonts.packages = [pkgs.nerd-fonts.droid-sans-mono];
 

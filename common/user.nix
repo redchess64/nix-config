@@ -22,7 +22,6 @@
     kdePackages.kdenlive
 
     # CLI applications
-    neofetch
     yt-dlp
     fzf
     qemu
