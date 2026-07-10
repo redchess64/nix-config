@@ -117,7 +117,7 @@ in {
 
   # Enable networking
   # networking.networkmanager.enable = true;
-  networking.nameservers = [ "1.1.1.1" "8.8.8.8"];
+  networking.nameservers = [ "1.1.1.1" "9.9.9.9"];
 
   fonts.packages = [pkgs.nerd-fonts.droid-sans-mono];
 
