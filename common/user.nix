@@ -18,6 +18,7 @@
     # TODO fix this
     (pkgs.python3.withPackages (python-pkgs: with python-pkgs; [
      matplotlib
+     pillow
     ]))
     kdePackages.kdenlive
 
@@ -36,6 +37,7 @@
     btop-cuda
     ripgrep
     nh
+    gamemode
 
     # Niri utilitys
     xwayland-satellite
