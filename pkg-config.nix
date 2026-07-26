@@ -12,12 +12,10 @@ in {
       "vesktop"
       "steam"
       "steam-unwrapped"
-      "aseprite"
       "spotify"
       "nvidia-x11"
       "nvidia-settings"
       "cups-brother-hll2340dw"
-      "pycharm"
     ];
   system = "x86_64-linux";
 }

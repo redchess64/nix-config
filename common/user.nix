@@ -14,7 +14,6 @@
     drawing
     alacritty
     olympus
-    jetbrains.pycharm
     # TODO fix this
     (pkgs.python3.withPackages (python-pkgs: with python-pkgs; [
      matplotlib
