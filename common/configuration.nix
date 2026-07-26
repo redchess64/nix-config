@@ -211,6 +211,7 @@ in {
     wget
     git
     unzip
+    zip
     file
     moreutils
     catppuccin-cursors.mochaDark
