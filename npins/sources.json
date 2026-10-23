@@ -9,9 +9,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "0151d9fa87992cbeb67c86616fb9170dcec830b6",
-      "url": "https://github.com/Gerg-L/mnw/archive/0151d9fa87992cbeb67c86616fb9170dcec830b6.tar.gz",
-      "hash": "sha256-HRn4O1X2ShYtbq5Egji72/aemyc2cIQicjRZD9hBqM8="
+      "revision": "a582dbedf7c8ec7effa6939ac5bdd23b27267d1b",
+      "url": "https://github.com/Gerg-L/mnw/archive/a582dbedf7c8ec7effa6939ac5bdd23b27267d1b.tar.gz",
+      "hash": "sha256-6IWPAMEotKY/nQvs1kU6qwMwCXTeW5HlOhw2RwFHFdI="
     },
     "nix-stow": {
       "type": "Git",
@@ -35,9 +35,9 @@
       },
       "branch": "nixos-26.05",
       "submodules": false,
-      "revision": "cf9d2fb3e50fa1cd5114c47505ea9177f7ff5f49",
-      "url": "https://github.com/nixos/nixpkgs/archive/cf9d2fb3e50fa1cd5114c47505ea9177f7ff5f49.tar.gz",
-      "hash": "sha256-cFTsMQz8Hzn8MT49oaeLSHg62tE86NykugCWkeM2ypk="
+      "revision": "774debe7a0d1b496e35677ad955a1011c6ff74f3",
+      "url": "https://github.com/nixos/nixpkgs/archive/774debe7a0d1b496e35677ad955a1011c6ff74f3.tar.gz",
+      "hash": "sha256-nQyFkMR78WP6PiXKkDW2SjqzLf/spQqjRuxRGSbcV8k="
     },
     "nixpkgs-unstable": {
       "type": "Git",
@@ -48,9 +48,9 @@
       },
       "branch": "nixos-unstable",
       "submodules": false,
-      "revision": "20b1ddd1aa5ace70c9468305030aa4f9ef79671b",
-      "url": "https://github.com/nixos/nixpkgs/archive/20b1ddd1aa5ace70c9468305030aa4f9ef79671b.tar.gz",
-      "hash": "sha256-B44WL6h0XoLjJ41bUPJk0X5SDinLCII//6EcBLXKiJ0="
+      "revision": "c59305bab2065cfecc4944690d9eedbb56f3a9fa",
+      "url": "https://github.com/nixos/nixpkgs/archive/c59305bab2065cfecc4944690d9eedbb56f3a9fa.tar.gz",
+      "hash": "sha256-69xHQhAeMAD2wDXO7T2pcOZIF9Sga2W+JkmY2a11Ops="
     },
     "spicetify-nix": {
       "type": "Git",
@@ -61,9 +61,9 @@
       },
       "branch": "master",
       "submodules": false,
-      "revision": "09eed5c95105aada9ffabd4c7eb6b345dc4ba66f",
-      "url": "https://github.com/Gerg-L/spicetify-nix/archive/09eed5c95105aada9ffabd4c7eb6b345dc4ba66f.tar.gz",
-      "hash": "sha256-lfZ7yAaTZMuAzOSLjJ7ivrKIFk0E11koWTVgkWSXwuE="
+      "revision": "d508ccfa23820d032589bd65345bf5b6d9ea842f",
+      "url": "https://github.com/Gerg-L/spicetify-nix/archive/d508ccfa23820d032589bd65345bf5b6d9ea842f.tar.gz",
+      "hash": "sha256-eR6P8ZCyYqrdvuOANIOE78t4qqm6wSTBKLP/aW8nwJE="
     }
   },
   "version": 7
